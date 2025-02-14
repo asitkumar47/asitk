@@ -1,50 +1,50 @@
 # List of topics
 
 ## Linear algebra
-### Eigen values, vectors
-### Pahse portraits
-### SVD
-### Toy examples
-#### Compression
-#### Model reduction
+* Eigen values, vectors
+* Pahse portraits
+* SVD
+* Toy examples
+	* Compression
+	* Model reduction
 
 ## Linear ODEs
-## Types of ODEs
-#### Unforced ODEs
-#### Forced ODEs
-## Examples
-### Mass-spring-damper
-### Damped pendulum
-### Flexible shaft
-## Analysis
-### Different methods to solve
-### MSD to natural frequency and damping ratio
-### Oscillation
-### Time constant intuition for second order systems
-### Phase plots (vector fields)
+* Types of ODEs
+	* Unforced ODEs
+	* Forced ODEs
+* Examples
+	* Mass-spring-damper
+	* Damped pendulum
+	* Flexible shaft
+* Analysis
+	* Different methods to solve
+	* MSD to natural frequency and damping ratio
+	* Oscillation
+	* Time constant intuition for second order systems
+	* Phase plots (vector fields)
 
 ## Numerical methods
-### Taylor series
-### Linearization
-### Integrators
-#### Forward Euler
-#### Backward Euler
-#### Runge-kutta
-#### Simplectic integrators
-### Differentiators
+* Taylor series
+* Linearization
+* Integrators
+	* Forward Euler
+	* Backward Euler
+	* Runge-kutta
+	* Simplectic integrators
+* Differentiators
 
 ## Fourier series, transform
-### DFT
-### FFT
+* DFT
+* FFT
 
 ## Vector calculus
-### Grad
-### Div
-### Curl
+* Grad
+* Div
+* Curl
 
 ## PDEs
-### Motivating equations
-### Toy examples
-#### 1d moving wave
-#### 1d shock wave
+* Motivating equations
+* Toy examples
+	* 1d moving wave
+	* 1d shock wave
 
