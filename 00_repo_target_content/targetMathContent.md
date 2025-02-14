@@ -30,7 +30,14 @@
 	* Forward Euler
 	* Backward Euler
 	* Runge-kutta
+	* ode45 in Matlab
 	* Simplectic integrators
+* Stiff ODEs
+	* examples
+	* solutions (with examples)
+		* use stiff integrators
+		* replace ODE with algebraic equation
+		* replace ODE with NNs
 * Differentiators
 
 ## Fourier series, transform
@@ -48,3 +55,6 @@
 	* 1d moving wave
 	* 1d shock wave
 
+## Object oriented programming
+* Uncoupled ODE
+* Coupled ODE
