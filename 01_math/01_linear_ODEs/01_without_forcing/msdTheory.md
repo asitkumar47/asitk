@@ -1,4 +1,6 @@
-## 1. Unforced Mass Spring Damper system ($$F_{\text{ext}} = 0$$)
+# Mass spring damper (unforced $$F_{ext} = 0 $$)
+
+## 1. Equations of motion
 
 The equation of motion for the unforced mass-spring-damper system:
 
@@ -101,7 +103,3 @@ $$ s = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1} $$
 - A **smaller $$ \tau $$** means a faster response.
 - In **underdamped** systems, $$ \tau $$ governs how fast the oscillations decay.
 - In **overdamped** systems, $$ \tau $$ determines how quickly the system settles.
-
----
-
-This provides a full mathematical summary of the unforced mass-spring-damper system in state-space form and highlights the concept of time constant.
