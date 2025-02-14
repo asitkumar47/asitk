@@ -20,7 +20,7 @@ omega_radps = 1;    % ω natural frequency
 zeta_nd     = .5;  % ζ damping ratio
 
 % model
-Amatrix = createMsdModel(omega_radps, zeta_nd);
+Amatrix = msdUnforcedMatrixFcn(omega_radps, zeta_nd);
 
 % sim
 time_s = (0 : 0.01 : 20)';
@@ -36,11 +36,6 @@ ax2 = subplot(2, 1, 2);
 plot(time_s, state_mixed(:, 2)); grid on
 title('Speed'); ylabel('m/s'); xlabel('Time (s)')
 eig(Amatrix)
-%% functions
-% matrix model msd
-function Amatrix = createMsdModel(omega_radps, zeta_nd)
-Amatrix = [0                1;
-           -omega_radps^2   -2*omega_radps*zeta_nd];
-end
+
 
 
