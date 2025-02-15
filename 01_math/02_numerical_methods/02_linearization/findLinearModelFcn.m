@@ -1,4 +1,4 @@
-function [Amatrix, Bmatrix] = findLinearModelFcn(fixedPoints, param)
+function linSys = findLinearModelFcn(fixedPoints, param)
 
 % This function returns a linear propeller model (A, B matrices) about user-defined fixed-points
 % This function needs inputs of i) fixed points, ii) model parameters
@@ -8,5 +8,9 @@ dQdOm2_Nms2 = interp1(param.dQdOm2Lut.bkpts1Speed_radps, param.dQdOm2Lut.dataDQd
 
 Amatrix = -2 * dQdOm2_Nms2 * fixedPoints.speed_radps / inertia_kgm2;
 Bmatrix = 1 / inertia_kgm2;
+Cmatrix = 1;
+Dmatrix = 0;
+
+linSys = ss(Amatrix, Bmatrix, Cmatrix, Dmatrix);
 
 end

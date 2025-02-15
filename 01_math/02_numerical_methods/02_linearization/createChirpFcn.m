@@ -25,7 +25,8 @@ chirpSignal.signal = 0 * time_s;
 chirpSignal.time_s = 0 * time_s;
 
 % Generate chirp signal
-chirpSignal.signal = opts.offset_nd + opts.magnitude_nd * chirp(time_s, opts.startFreq_Hz, opts.timeDuration_s, opts.endFreq_Hz, 'linear');
+chirpSignal.signal = opts.offset_nd + opts.magnitude_nd * ...
+                     chirp(time_s, opts.startFreq_Hz, opts.timeDuration_s, opts.endFreq_Hz, 'quadratic');
 chirpSignal.time_s = time_s;
 
 if opts.isShowPlot
