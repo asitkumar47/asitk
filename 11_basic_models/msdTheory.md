@@ -1,4 +1,4 @@
-# Mass spring damper (unforced $$F_{ext} = 0 $$)
+# Mass spring damper (unforced $F_{ext} = 0 $)
 
 ## 1. Equations of motion
 
@@ -10,8 +10,8 @@ $$
 
 State variables:
 
-* $$ x_1 = x $$ (position)
-* $$ x_2 = \dot{x} $$ (velocity)
+* $ x_1 = x $ (position)
+* $ x_2 = \dot{x} $ (velocity)
 
 First-order form:
 
@@ -42,7 +42,7 @@ $$
 
 ---
 
-## 2. State-Space Equations in $$ \omega_n $$ and $$ \zeta $$ Form
+## 2. State-Space Equations in $ \omega_n $ and $ \zeta $ Form
 
 Using the natural frequency:
 
@@ -64,7 +64,7 @@ $$
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
 $$
 
-So, in terms of $$ \omega_n $$ and $$ \zeta $$:
+So, in terms of $ \omega_n $ and $ \zeta $:
 
 $$
 A = \begin{bmatrix} 0 & 1 \\ -\omega_n^2 & -2\zeta \omega_n \end{bmatrix}
@@ -74,7 +74,7 @@ $$
 
 ## 3. Time Constant of a second order system
 
-The time constant $$ \tau $$ describes how quickly the system’s response decays. For a **first-order system**, the time constant is the time it takes for the response to decay to $$ 1/e $$ of its initial value.
+The time constant $ \tau $ describes how quickly the system’s response decays. For a **first-order system**, the time constant is the time it takes for the response to decay to $ 1/e $ of its initial value.
 
 For a **second-order system**, the dominant time constant is related to the real part of the eigenvalues of $$ A $$. The characteristic equation is:
 
