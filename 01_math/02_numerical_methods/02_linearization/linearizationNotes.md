@@ -4,7 +4,7 @@
 	* quesiton - can we expand about any point and still inearize a system?
 
 ## Taylor expansion
-Tayloe expand 
+Taylor expand 
 $ \dot x = f(x, u) $ to approximate $ f(x + \Delta x, u + \Delta u) $    
 with $ \Delta x = x-x_0, \Delta u = u-u_0$
 
@@ -47,7 +47,7 @@ $$
 
 
 ## Example
-### propeller mechanical model
+### Propeller mechanical model
 $$
 J\dot{\omega} + b(\omega)\omega^2 = T_{aero}
 $$
