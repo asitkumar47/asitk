@@ -42,7 +42,7 @@ $$
 TF_{delayPA} = \frac{s^2 - 6s + 12}{s^4 + 6.5s^2 + 16s^2 + 12s + 12}
 $$
 
-<img src = "/Users/asitkumar/Documents/GitHub/asitk/01_math/30_pade_approximation/padePlot.png" width="760">
+<img src = "/Users/asitkumar/Documents/GitHub/asitk/01_math/30_pade_approximation/padePlot.png" width="650">
 
 We can see that $TF_{delayPA}$ (black dotted) is approximating $TF_{delay}$ (red dotted) by matching the phase margin at the cross-over frequency (frequency at -3dB gain)
 
