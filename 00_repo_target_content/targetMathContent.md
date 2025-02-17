@@ -43,6 +43,16 @@
 		* replace ODE with NNs
 * Differentiators
 
+## Parameter estimation
+* Linear
+    * manual method `Ax = b` 
+    * setting up a least squares method
+    * examples
+        * motor param estimation
+        * battery param estimation
+* Non-linear
+    * ARX
+
 ## Fourier series, transform
 * DFT
 * FFT
