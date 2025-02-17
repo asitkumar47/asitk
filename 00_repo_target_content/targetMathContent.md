@@ -26,6 +26,9 @@
 ## Numerical methods
 * Taylor series
 * Linearization
+    * 1-state system example
+    * 2-state system example
+    	* compare phase space (`quiver`) 
 * Integrators
 	* Forward Euler
 	* Backward Euler

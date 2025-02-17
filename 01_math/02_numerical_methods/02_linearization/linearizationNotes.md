@@ -93,7 +93,18 @@ speed_radps = speed_radps + fixedPoints.speed_radps;
 * Input $u =$ to $linSys = $  actual torque - fixedPoint torque
 * Output = $ y $ from $linSys$ + fixedPoint speed
 
-<img src = "/Users/asitkumar/Documents/GitHub/asitk/01_math/02_numerical_methods/02_linearization/01_signle_state_example/one-state-propeller-lin-example-plot.png" width = 620>
+<img src = "/Users/asitkumar/Documents/GitHub/asitk/01_math/02_numerical_methods/02_linearization/01_signle_state_example/one-state-propeller-lin-example-plot.png" width = 620> 
+
+A sample time series comparison plot
+
+
+<img src = "/Users/asitkumar/Documents/GitHub/asitk/01_math/02_numerical_methods/02_linearization/01_signle_state_example/one-state-propeller-accuracy-sensitivity.png" width = 300>  
+Accuracy sensitivity as linearization fixed point and input variation increase
+  
+  
+  
+    
+
 
 ### Two-state system - propeller thermo-mechanical model
 Will do in a new branch.
