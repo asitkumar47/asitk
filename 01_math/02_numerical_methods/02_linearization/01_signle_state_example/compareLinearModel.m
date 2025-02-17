@@ -38,9 +38,9 @@ simOutLin.speed_radps = simOutLin.speed_radps + fixedPoints.speed_radps;
 % compare
 figure(1); clf;
 ax1 = subplot(2, 1, 1);
-plot(simParam.time_s, simOutputReal.speed_radps); grid on; hold on;
-plot(simOutLin.time_s, simOutLin.speed_radps, '--')
-ylabel('rad/s'); title('Output speed')
+plot(simParam.time_s, simOutputReal.speed_radps, 'LineWidth', 1); grid on; hold on;
+plot(simOutLin.time_s, simOutLin.speed_radps, '--', 'LineWidth', 1)
+ylabel('rad/s'); title('Output speed'); legend('non-lin', 'linearized')
 ax2 = subplot(2, 1, 2);
 plot(simParam.time_s, input.torque_Nm, 'r'); grid on
 ylabel('Nm'); xlabel('Time (s)'); title('Input torque')
