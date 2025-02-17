@@ -35,16 +35,18 @@ zeta_nd     = .3;  % ζ damping ratio
 % model
 Amatrix = msdUnforcedMatrixFcn(omega_radps, zeta_nd);
 
+timeConstant_s = 1/(zeta_nd * omega_radps);
+
 % sim
-time_s = (0 : 0.01 : 50)';
-ic_mixed = [-.75; .8];                                  % position, velocity
+time_s = (0 : 0.01 : 5 * timeConstant_s)';
+ic_mixed = [0; .5];                                  % position, velocity
 state_mixed = (expmv(Amatrix, ic_mixed, time_s))';  % expm(Amatrix .* time_s) * ic_mixed
 
 
 
 % plot time series
 figure(1); clf;
-set(gcf, 'Position',  [100, 200, 1000, 400])
+set(gcf, 'Position',  [0, 0, 1000, 400])
 ax1 = subplot(2, 2, 2);
 plot(time_s, state_mixed(:, 1)); grid on
 ylabel('m'); title('Position')
@@ -56,7 +58,7 @@ linkaxes([ax1, ax2], 'x');
 
 % plot ODE field (quiver)
 ax3 = subplot(2, 2, [1, 3]);
-meshGridLim = max(state_mixed, [], 'all') * 1.1;
+meshGridLim = max(abs(state_mixed), [], 'all') * 1.1;
 [xGrid, yGrid] = meshgrid(-meshGridLim : 0.1 : meshGridLim, -meshGridLim : 0.1 : meshGridLim);
 for iX = 1:size(xGrid, 1)
     for iY = 1:size(xGrid, 2)
@@ -75,6 +77,7 @@ line([min(state_mixed(:, 1)), max(state_mixed(:, 1))], [0, 0], 'linestyle', '--'
 axis square
 axis tight
 
+fprintf(compose("Time constant = %0.2f s\n", timeConstant_s));
 
 %% command explnation
 % 1. expmv(A,b,t) calculates the product of a matrix exponential and a vector
