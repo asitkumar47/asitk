@@ -43,15 +43,27 @@
 		* replace ODE with NNs
 * Differentiators
 
-## Parameter estimation
+## System Identification, param estimation
+* Terminologies
+    * Regression
+    * Grammiams
 * Linear
     * manual method `Ax = b` 
     * setting up a least squares method
     * examples
         * motor param estimation
         * battery param estimation
+    * POD
+    * BPOD
+    * ERA
 * Non-linear
     * ARX
+    * SINDy
+    * Genetic programming
+
+## Model reduction
+* SVD
+* Balanced truncation
 
 ## Fourier series, transform
 * DFT
