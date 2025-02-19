@@ -2,7 +2,7 @@
 
 ## Linear algebra
 * Eigen values, vectors
-* Pahse portraits
+* Phase portraits
 * SVD
 * Toy examples
 	* Compression
@@ -67,8 +67,8 @@
     * spline fit (matching 1st and 2nd derivatives)
 
 ## Optimization
-* fminsearch
-* fmincon
+* `fminsearch`
+* `fmincon`
 
 ## Model reduction
 * SVD
