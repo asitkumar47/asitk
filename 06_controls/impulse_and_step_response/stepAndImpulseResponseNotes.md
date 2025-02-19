@@ -1,3 +1,4 @@
+# Step and impulse response notes
 ## Impulse response
 * Theoretically, we impulse the system ONLY at the first time instant $(t=0)$ and measure the outputs
     * exampe would be whacking a MSD or flexible body with a hammer and measuring displacement
@@ -27,12 +28,13 @@ Comparing the above two equations we see $B = x_0$. This is giving a unit IC in 
 ## Matlab simulation
 | Method     | Impulse 			        | Step                  |   Code format|
 | :----------| :---------------:      |:---------------------:|:-------------:|
-| Built-in  	|`impulse(linSys)`       |`step(linSys)`         |               |
+| Built-in   |`impulse(linSys)`       |`step(linSys)`         |               |
 | Manual1    |`lsim(linSys, 0, t, B)` |`lsim(linSys, 1, t, 0)`|`lsim(sys, u, t, x0)`|
-| Manual1    |`expmv(A, B, t)`        |                       | $=e^{At}B$        |
+| Manual2    |`expmv(A, B, t)`        |                       | $=e^{At}B$      |
 
 For a simple MSD sytem here's a comparison plot of the above mentioned methods
-<img src = "/Users/asitkumar/Documents/GitHub/asitk/06_controls/impulse_and_step_response/manualImpulseAndStep.png" width = 600> 
+![[manualImpulseAndStep.png | 600]]
+
 
 ## Other insights
 1. Writing out impulse response for discrete systems generates the format of a controllability matrix. For a system with $n$ states, the ctrollability matrix $C$

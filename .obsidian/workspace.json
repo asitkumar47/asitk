@@ -4,44 +4,46 @@
     "type": "split",
     "children": [
       {
-        "id": "7a81448816d8e342",
+        "id": "9ec0764c77b4a761",
         "type": "tabs",
+        "dimension": 47.254150702426564,
         "children": [
           {
-            "id": "46ec36a840128409",
+            "id": "4e7c8500ecfd53bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "msdTheory"
+              "title": "stepAndImpulseResponseNotes"
             },
-            "group": "ab48870e3dcc2168"
+            "group": "3358fd94fe200584"
           }
         ]
       },
       {
-        "id": "d9531ece65f90faa",
+        "id": "ec1ae5357c48f600",
         "type": "tabs",
+        "dimension": 52.745849297573436,
         "children": [
           {
-            "id": "8a742638a387814f",
+            "id": "fd9032846ddb2d4c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "msdTheory"
+              "title": "stepAndImpulseResponseNotes"
             },
-            "group": "ab48870e3dcc2168"
+            "group": "3358fd94fe200584"
           }
         ]
       }
@@ -191,11 +193,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "46ec36a840128409",
+  "active": "4e7c8500ecfd53bc",
   "lastOpenFiles": [
+    "06_controls/impulse_and_step_response/manualImpulseAndStep.png",
+    "11_basic_models/msdTheory.md",
     "11_basic_models/msdTheory.pdf",
     "msdTheory.pdf",
-    "11_basic_models/msdTheory.md",
     "00_repo_target_content/targetMathContent.md",
     "targetMathContentTypewritter.pdf",
     "targetMathContentMinimal.pdf",
