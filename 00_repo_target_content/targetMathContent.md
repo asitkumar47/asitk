@@ -47,6 +47,8 @@
 * Terminologies
     * Regression
     * Grammiams
+    * Lagrange polynomials
+    * Polynomial wiggle
 * Linear
     * manual method `Ax = b` 
     * setting up a least squares method
@@ -60,6 +62,13 @@
     * ARX
     * SINDy
     * Genetic programming
+* Curve fitting
+    * polynomial fit
+    * spline fit (matching 1st and 2nd derivatives)
+
+## Optimization
+* fminsearch
+* fmincon
 
 ## Model reduction
 * SVD
