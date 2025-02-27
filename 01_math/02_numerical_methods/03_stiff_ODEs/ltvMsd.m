@@ -1,7 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Description
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LTV MSD -> linear-time-variant tw0-mass-spring-damper system
+% LTV MSD -> linear-time-invariant tw0-mass-spring-damper system
+% This is a base model of 2-MSD system, it is NOT stiff, not time varying
+% This is purely to visualize a 2-MSD-LTI system
 
 clear, clc, close all
 
@@ -33,11 +35,13 @@ ic_mixed     = [-1; -1; 1; 1];
 
 % plot
 figure(1); clf;
-subplot 211
+ax1 = subplot(2, 1, 1);
 plot(tLsim, xLsim); grid on;
-subplot 212
+title('lsim states')
+ax2 = subplot(2, 1, 2);
 plot(tLsim, xLsim - xOde45); grid on;
-ylim([-1 1])
+title('lsim - ode45 (error)'); ylim([-1 1])
+xlabel('Time (s)')
 
 
 % post-process
