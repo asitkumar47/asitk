@@ -3,10 +3,10 @@
 
 ![[ECM.svg]]
 
-$E_0 \rightarrow open\ circuit\ voltage\ (V)$
-$V_t \rightarrow terminal\ voltage\ (V) \leftarrow output\ of\ the\ model$
-$i \rightarrow current\ draw\ (A) \leftarrow input\ to\ the\ model$
-$r_n, c_n \rightarrow resistance\ and\ capacitances\ (\ohm, F)$
+$E_0 \rightarrow open\ circuit\ voltage\ (V)$  
+$V_t \rightarrow terminal\ voltage\ (V) \leftarrow output\ of\ the\ model$  
+$i \rightarrow current\ draw\ (A) \leftarrow input\ to\ the\ model$  
+$r_n, c_n \rightarrow resistance\ and\ capacitances\ (\ohm, F)$  
 
 ## Model equations
 ### Electrical model
@@ -32,13 +32,15 @@ $$P_{heatOut}=$$
 
 ### Define SOC
 SOC is the ratio of the present charge content of the cell to the maximum possible charge content at a pre-defined temperature and C-rate
-$$SOC=\frac{Q_{remaining}}{Q_{max}}\times100\ [\%]%$$
+
+$$SOC=\frac{Q_{remaining}}{Q_{max}}\times100\ \\\%$$
 
 ### Direct methods
 #### Coulomb counting (CC)
 In this method, the SOC of a cell (battery) is estimated by counting the amount of charge (coulombs) entering or leaving the battery
+
 $$
-SOC(t) = SOC(t_0) + \frac{1}{Q_{max_{As}}} \int_{0}^{T}idt \times 100 \%
+SOC(t) = SOC(t_0) + \frac{1}{Q_{max_{As}}} \int_{0}^{T}idt \times 100\ \\\%
 $$
 
 ##### Problems
@@ -51,9 +53,10 @@ This follows the crux of couting charge, but adds corrections in terms of:
 - reseting battery SOC from SOC-OCV table as it rests beyond its largest time constant 
 - adding correction terms like discharge efficiency and Peukert equation coefficient and generic current-based polynomial to the term that is integrated
 - the additional coefficients ($\eta_{coulumb}$, $k$, $n$, $a_n$) are tuned from repeated power draw $\leftrightarrow$ rest cycles with SOC-OCV resets baked in between the cycles
+
 $$
 SOC(t) = SOC(t_0) + \frac{\eta_{coulomb}}{Q_{max_{As}}} \int_{0}^{T}
-[i^k + \sum_{0}^{n}(a_ni^n)]\ dt \times 100 \%
+[i^k + \sum_{0}^{n}(a_ni^n)]\ dt \times 100\ \\\%
 $$
 - this method works for a particular power draw cycle
 
