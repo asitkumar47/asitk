@@ -1,9 +1,83 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.16">
   <diagram name="Page-1" id="DlUGKKBEpujL7akSqH-c">
-    <mxGraphModel>
+    <mxGraphModel dx="1177" dy="646" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="ILipK6pUstItX-LzdFIn-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ILipK6pUstItX-LzdFIn-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="110.14035087719299" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-1" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.resistors.resistor_2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="100" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="159.9999999999999" as="targetPoint" />
+            <mxPoint x="180" y="60" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="200" y="60" />
+              <mxPoint x="200" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-2" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.resistors.resistor_2;fontStyle=2;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="89.97999999999999" y="50" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-3" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.capacitors.capacitor_1;" vertex="1" parent="1">
+          <mxGeometry x="89.97999999999999" y="130" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" edge="1" parent="1" source="ILipK6pUstItX-LzdFIn-3" target="ILipK6pUstItX-LzdFIn-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="160" />
+              <mxPoint x="80" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-11" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="110" as="sourcePoint" />
+            <mxPoint x="270" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-13" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="109.65" as="sourcePoint" />
+            <mxPoint x="220" y="109.65" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="159.9999999999999" as="targetPoint" />
+            <mxPoint x="400" y="60" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="420" y="60" />
+              <mxPoint x="420" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-15" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.resistors.resistor_2;fontStyle=2;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="309.97999999999996" y="50" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-16" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.capacitors.capacitor_1;" vertex="1" parent="1">
+          <mxGeometry x="309.97999999999996" y="130" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" edge="1" source="ILipK6pUstItX-LzdFIn-16" target="ILipK6pUstItX-LzdFIn-15" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="160" />
+              <mxPoint x="300" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ILipK6pUstItX-LzdFIn-19" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="110" as="sourcePoint" />
+            <mxPoint x="300" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
