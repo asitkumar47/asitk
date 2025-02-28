@@ -11,11 +11,37 @@
             "id": "8323ad14c9043c86",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "12_battery/batteryModelingNotes.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "New tab"
-            }
+              "title": "batteryModelingNotes"
+            },
+            "group": "40d0708c93ba7c2c"
+          }
+        ]
+      },
+      {
+        "id": "b6c41d6f5137f7b0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1325c9711498259c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "12_battery/batteryModelingNotes.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "batteryModelingNotes"
+            },
+            "group": "40d0708c93ba7c2c"
           }
         ]
       }
@@ -91,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,7 +127,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for msdTheory"
+              "title": "Backlinks for batteryModelingNotes"
             }
           },
           {
@@ -167,6 +193,13 @@
   },
   "active": "8323ad14c9043c86",
   "lastOpenFiles": [
+    "12_battery/batteryModelingNotes.pdf",
+    "12_battery/References/pics/ECM.png",
+    "12_battery/References/pics/ECM copy.svg",
+    "12_battery/References/pics/ECM.svg",
+    "12_battery/References/Untitled Diagram.drawio",
+    "12_battery/References/pics",
+    "12_battery/References/untitled folder",
     "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
     "06_controls/impulse_and_step_response/manualImpulseAndStep.png",
     "11_basic_models/msdTheory.md",
