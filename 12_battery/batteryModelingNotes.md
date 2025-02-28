@@ -27,7 +27,7 @@ $$P_{heatOut}=$$
 	1. CC (Coulomb couting)
 	2. ECC (Enhanced CC)
 2. Model-based methods
-	1. ECM observer models
+	1. Kalman filtering
 3. Data-driven methods
 
 ### Define SOC
@@ -44,14 +44,15 @@ SOC(t) = SOC(t_0) + \frac{1}{Q_{max_{As}}} \int_{0}^{T}idt \times 100\ \\\%
 $$
 
 ##### Problems
+- strong dependence of initial value of SOC
 - requires high precision current measurement
 - does not consider health of the battery (unless $Q_{max_{As}}$ is calibrated)
 
 
 #### Enhance coulomb counting (ECC)
 This follows the crux of couting charge, but adds corrections in terms of:
-- reseting battery SOC from SOC-OCV table as it rests beyond its largest time constant 
-- adding correction terms like discharge efficiency and Peukert equation coefficient and generic current-based polynomial to the term that is integrated
+- reseting battery SOC from SOC-OCV table as it rests beyond its largest time constant (this solves the initial SOC value problem with CC)
+- adding correction terms like discharge efficiency and Peukert equation coefficient and generic current-based polynomial to the term that is integrated (this solves the lack of precision with current integration)
 - the additional coefficients ($\eta_{coulumb}$, $k$, $n$, $a_n$) are tuned from repeated power draw $\leftrightarrow$ rest cycles with SOC-OCV resets baked in between the cycles
 
 $$
@@ -69,6 +70,7 @@ $$
 
 
 ### Model-based methods
+**A big maybe** $\rightarrow$ The main idea is to use a model to predict OCV from measurements like current and voltage, and then use the OCV to lookup SOC from the OCV-SOC relationship
 
 
 

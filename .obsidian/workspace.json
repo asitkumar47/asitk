@@ -4,11 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "6bb42b30696fd6e9",
+        "id": "2312562803e5c6ca",
         "type": "tabs",
+        "dimension": 48.275862068965516,
         "children": [
           {
-            "id": "8323ad14c9043c86",
+            "id": "41b830b0c55b1b3c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,16 +21,17 @@
               "icon": "lucide-file",
               "title": "batteryModelingNotes"
             },
-            "group": "40d0708c93ba7c2c"
+            "group": "8d3582b8b66fccb0"
           }
         ]
       },
       {
-        "id": "b6c41d6f5137f7b0",
+        "id": "d792a2b4408fa635",
         "type": "tabs",
+        "dimension": 51.724137931034484,
         "children": [
           {
-            "id": "1325c9711498259c",
+            "id": "2e6859d800aa0b27",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -41,7 +43,7 @@
               "icon": "lucide-file",
               "title": "batteryModelingNotes"
             },
-            "group": "40d0708c93ba7c2c"
+            "group": "8d3582b8b66fccb0"
           }
         ]
       }
@@ -191,8 +193,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8323ad14c9043c86",
+  "active": "41b830b0c55b1b3c",
   "lastOpenFiles": [
+    "01_math/eigsOfContinuousAndDiscreteSystems.md",
+    "12_battery/References/PeukertEquationPaper.pdf",
+    "01_math/eigsOfContinuousAndDiscreteSystems.pdf",
+    "12_battery/batteryModelingNotes.md",
     "12_battery/References/batteryDiagrams.drawio",
     "12_battery/batteryModelingNotes.pdf",
     "12_battery/References/pics/ECM.png",
@@ -207,9 +213,6 @@
     "11_basic_models/msdTheory.pdf",
     "msdTheory.pdf",
     "00_repo_target_content/targetMathContent.md",
-    "targetMathContentTypewritter.pdf",
-    "targetMathContentMinimal.pdf",
-    "targetMathContentDefault.pdf",
-    "targetMathContent.pdf"
+    "targetMathContentTypewritter.pdf"
   ]
 }
