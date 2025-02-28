@@ -89,6 +89,15 @@
 	* 1d moving wave
 	* 1d shock wave
 
+## Common problems
+### Dynamical systems
+* MSD
+* Quarter car model
+* Flexible shaft
+### Parameterization
+* Reflected inertia
+
+
 ## Object oriented programming
 * Uncoupled ODE
 * Coupled ODE
