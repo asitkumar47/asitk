@@ -142,6 +142,15 @@
         <mxCell id="MSCoQmtM2xvOpEuUudS3-18" value="$$E_0$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="50.00000000000003" y="160" width="60" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="MSCoQmtM2xvOpEuUudS3-19" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeColor=#999999;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="200" as="sourcePoint" />
+            <mxPoint x="290" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MSCoQmtM2xvOpEuUudS3-20" value="$$V_{C_n}$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="199.98000000000002" y="200" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
