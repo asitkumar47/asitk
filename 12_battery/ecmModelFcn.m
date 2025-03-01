@@ -1,4 +1,4 @@
-function [x, y, debug] = ecmModelFcn(p, xp, u, dt_s)
+function [x, y, debugArray] = ecmModelFcn(p, xp, u, dt_s)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Description
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,16 +19,16 @@ function [x, y, debug] = ecmModelFcn(p, xp, u, dt_s)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Inputs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 1. p    : param struct            (r, c, ocv LUTs)
-% 2. xp   : previous state struct   (Vc1_V, Vc2_V, soc_nd)
-% 3. u    : input struct            (iPack_A) discharge is positive
+% 1. p    : param struct           (r, c, ocv LUTs)
+% 2. xp   : previous state array   (Vc1_V, Vc2_V, soc_nd)
+% 3. u    : input array            (iPack_A) discharge is positive
 % 4. dt_s : time step
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Outputs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 1. x    : state struct  (Vc1_, Vc2_V, soc_nd)
-% 2. y    : output struct (Vt_V)
-% 3. debug: debug struct  (heatGen_W, ...)
+% 1. x    : state array  (Vc1_, Vc2_V, soc_nd)
+% 2. y    : output array (Vt_V)
+% 3. debug: debug array  (heatGen_W, ...)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Example usage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,23 +36,28 @@ function [x, y, debug] = ecmModelFcn(p, xp, u, dt_s)
 
 %%
 % find params (pack level)
-debug.E0_V      = interp1(p.cell.bkptsSoc_nd, p.cell.dataOcv_V,  xp.soc_nd) * p.pack.nS_nd;
-debug.r0_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR0_Ohm, xp.soc_nd) * p.pack.nS_nd / p.pack.nP_nd;
-debug.r1_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR1_Ohm, xp.soc_nd) * p.pack.nS_nd / p.pack.nP_nd;
-debug.c1_F      = interp1(p.cell.bkptsSoc_nd, p.cell.dataC1_Ohm, xp.soc_nd) * p.pack.nP_nd / p.pack.nS_nd;
-debug.r2_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR2_Ohm, xp.soc_nd) * p.pack.nS_nd / p.pack.nP_nd;
-debug.c2_F      = interp1(p.cell.bkptsSoc_nd, p.cell.dataC2_Ohm, xp.soc_nd) * p.pack.nP_nd / p.pack.nS_nd;
+E0_V      = interp1(p.cell.bkptsSoc_nd, p.cell.dataE0_V,   max(xp(1), 0)) * p.pack.nS_nd;
+r0_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR0_Ohm, max(xp(1), 0)) * p.pack.nS_nd / p.pack.nP_nd;
+r1_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR1_Ohm, max(xp(1), 0)) * p.pack.nS_nd / p.pack.nP_nd;
+c1_F      = interp1(p.cell.bkptsSoc_nd, p.cell.dataC1_F,   max(xp(1), 0)) * p.pack.nP_nd / p.pack.nS_nd;
+r2_Ohm    = interp1(p.cell.bkptsSoc_nd, p.cell.dataR2_Ohm, max(xp(1), 0)) * p.pack.nS_nd / p.pack.nP_nd;
+c2_F      = interp1(p.cell.bkptsSoc_nd, p.cell.dataC2_F,   max(xp(1), 0)) * p.pack.nP_nd / p.pack.nS_nd;
+
+x = [0; 0; 0];
+y = 0;
 
 % find state (FE integration)
-x.Vc1_V     = xp.Vc1_V  + dt_s * ( u.iPack_A / debug.c1_F - xp.Vc1_V / (debug.r1_Ohm * debug.c1_F) );
-x.Vc2_V     = xp.Vc2_V  + dt_s * ( u.iPack_A / debug.c2_F - xp.Vc2_V / (debug.r2_Ohm * debug.c2_F) );
-x.soc_nd    = xp.soc_nd + dt_s * ( -u.iPack_A / (p.cell.capacity_Ah * p.pack.nP_nd / 3600) );
+x(1)  = xp(1) + dt_s * ( -u(1) / (p.cell.capacity_Ah * p.pack.nP_nd * 3600) );
+x(2)  = xp(2) + dt_s * ( u(1) / c1_F - xp(2) / (r1_Ohm * c1_F) );
+x(3)  = xp(3) + dt_s * ( u(1) / c2_F - xp(3) / (r2_Ohm * c2_F) );
 
-% find output
-y.Vt_V      = debug.E0_V - x.Vc1_V - x.Vc2_V - u.iPack_A * debug.r0_Ohm;
+% find outputßƒ
+y(1)      = E0_V - x(2) - x(3) - u(1) * r0_Ohm;
 
 % debug signals
-debug.heatGen_W = (x.iPack_A^2 * debug.r0_Ohm) + (x.Vc1_V^2 / debug.r1_Ohm) + (x.Vc2_V^2 / debug.r2_Ohm);
+heatGen_W = (u^2 * r0_Ohm) + (x(2)^2 / r1_Ohm) + (x(3)^2 / r2_Ohm);
+
+debugArray = [E0_V, r0_Ohm, r1_Ohm, r2_Ohm, c1_F, c2_F, heatGen_W];
 
 end
 
