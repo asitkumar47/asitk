@@ -6,7 +6,7 @@
       {
         "id": "2312562803e5c6ca",
         "type": "tabs",
-        "dimension": 48.275862068965516,
+        "dimension": 49.744572158365266,
         "children": [
           {
             "id": "41b830b0c55b1b3c",
@@ -28,7 +28,7 @@
       {
         "id": "d792a2b4408fa635",
         "type": "tabs",
-        "dimension": 51.724137931034484,
+        "dimension": 50.255427841634734,
         "children": [
           {
             "id": "2e6859d800aa0b27",
@@ -195,6 +195,12 @@
   },
   "active": "41b830b0c55b1b3c",
   "lastOpenFiles": [
+    "12_battery/generateTestData.asv",
+    "12_battery/getCellPackParamFcn.m",
+    "12_battery/generateTestData.m",
+    "12_battery/untitled.m",
+    "12_battery/ecmModelFcn.asv",
+    "12_battery/ecmModelFcn.m",
     "01_math/eigsOfContinuousAndDiscreteSystems.md",
     "12_battery/References/PeukertEquationPaper.pdf",
     "01_math/eigsOfContinuousAndDiscreteSystems.pdf",
@@ -205,14 +211,9 @@
     "12_battery/References/pics/ECM copy.svg",
     "12_battery/References/pics/ECM.svg",
     "12_battery/References/Untitled Diagram.drawio",
-    "12_battery/References/pics",
-    "12_battery/References/untitled folder",
     "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
     "06_controls/impulse_and_step_response/manualImpulseAndStep.png",
     "11_basic_models/msdTheory.md",
-    "11_basic_models/msdTheory.pdf",
-    "msdTheory.pdf",
-    "00_repo_target_content/targetMathContent.md",
-    "targetMathContentTypewritter.pdf"
+    "00_repo_target_content/targetMathContent.md"
   ]
 }
