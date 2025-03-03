@@ -14,7 +14,7 @@ function [x, y, debugArray] = ecmModelFcn(p, xp, u, dt_s)
 % 1. y  = E0 - Vc1 - Vc2 - ir0 = Vt
 % 2. dx = d(Vc1) = i/c1 - Vc1/(r1c1)
 % 3. dx = d(Vc2) = i/c2 - Vc2/(r2c2)
-% 4. dx = d(soc) = -i/Q = -i/(Cap_Ah/3600)
+% 4. dx = d(soc) = -i/Q = -i/(Cap_Ah*3600)
 % 5. Temperature equation to be added later
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       Inputs

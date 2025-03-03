@@ -27,20 +27,37 @@ testData.ic.Vc2_V  = 0;
 % initialization
 testData.x(1, 1:3) = [1, 0, 0]; % soc_nd, Vc1_V, Vc2_V
 testData.y(1, 1)  = interp1(param.cell.bkptsSoc_nd, param.cell.dataE0_V, testData.ic.soc_nd) * param.pack.nS_nd;
-
+testData.x2(1:3, 1) = [1, 0, 0]';
+testData.y2(1, 1) = testData.y(1, 1);
 
 for iT = 2:length(test.time_s)
+    % ECM model with integrator outputing states (x)
     [testData.x(iT, :), testData.y(iT, 1), debug(iT, :)] = ecmModelFcn(param, testData.x(iT - 1, :), test.packCurrentDraw_A(iT), test.dt_s);
-
+    
+    % ECM ode model outputing state derivatives (dx)
+    E0_V      = interp1(param.cell.bkptsSoc_nd, param.cell.dataE0_V,   max(testData.x2(1, iT-1), 0)) * param.pack.nS_nd;
+    r0_Ohm    = interp1(param.cell.bkptsSoc_nd, param.cell.dataR0_Ohm, max(testData.x2(1, iT-1), 0)) * param.pack.nS_nd / param.pack.nP_nd;
+    r1_Ohm    = interp1(param.cell.bkptsSoc_nd, param.cell.dataR1_Ohm, max(testData.x2(1, iT-1), 0)) * param.pack.nS_nd / param.pack.nP_nd;
+    c1_F      = interp1(param.cell.bkptsSoc_nd, param.cell.dataC1_F,   max(testData.x2(1, iT-1), 0)) * param.pack.nP_nd / param.pack.nS_nd;
+    r2_Ohm    = interp1(param.cell.bkptsSoc_nd, param.cell.dataR2_Ohm, max(testData.x2(1, iT-1), 0)) * param.pack.nS_nd / param.pack.nP_nd;
+    c2_F      = interp1(param.cell.bkptsSoc_nd, param.cell.dataC2_F,   max(testData.x2(1, iT-1), 0)) * param.pack.nP_nd / param.pack.nS_nd;
+    testData.x2(:, iT) = rk4StepperFcn(@(t, x, u) ecmOdeFcn(t, x, u, param.cell.capacity_Ah * param.pack.nP_nd, r1_Ohm, r2_Ohm, c1_F, c2_F), ...
+                                       test.dt_s, test.time_s(iT), testData.x2(:, iT-1), test.packCurrentDraw_A(iT));
+    testData.y2(:, iT) = E0_V - test.packCurrentDraw_A(iT) * r0_Ohm - testData.x2(2, iT) - testData.x2(3, iT);
 end
 
 
 % simulate data recording (add noise)
 
+
 % plot simulated test data
+
 
 %%
 figure(1); clf; pause(0.1);
-plot(test.time_s, testData.y'); grid on; grid minor; hold on
-plot(test.time_s(2:end, 1), debug(2:end, 1))
+subplot 211
+plot(test.time_s, testData.y', test.time_s, testData.y2); grid on; grid minor; hold on
+subplot 212
+plot(test.time_s, testData.y' - testData.y2)
+% plot(test.time_s(2:end, 1), debug(2:end, 1))
 xlabel('Time (s)'); ylabel('V_{terminal} (V)')
