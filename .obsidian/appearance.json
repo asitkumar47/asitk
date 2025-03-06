@@ -1,7 +1,7 @@
 {
-  "theme": "moonstone",
+  "theme": "obsidian",
   "accentColor": "#7f4992",
-  "cssTheme": "Gitsidian",
+  "cssTheme": "",
   "baseFontSizeAction": true,
   "baseFontSize": 13
 }

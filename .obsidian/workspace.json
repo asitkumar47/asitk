@@ -4,18 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "6bb42b30696fd6e9",
+        "id": "52702d8579e3349d",
         "type": "tabs",
         "children": [
           {
-            "id": "8323ad14c9043c86",
+            "id": "5a89ff0151cbbd54",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "20_specific_models/dronePowertrainSizingNotes.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "New tab"
-            }
+              "title": "dronePowertrainSizingNotes"
+            },
+            "group": "e8a9ec37afd40edf"
+          }
+        ]
+      },
+      {
+        "id": "d0835f8c96a51813",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3911e14468241ba9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20_specific_models/dronePowertrainSizingNotes.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "dronePowertrainSizingNotes"
+            },
+            "group": "e8a9ec37afd40edf"
           }
         ]
       }
@@ -91,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "20_specific_models/dronePowertrainSizingNotes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,7 +127,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for msdTheory"
+              "title": "Backlinks for dronePowertrainSizingNotes"
             }
           },
           {
@@ -165,8 +191,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8323ad14c9043c86",
+  "active": "5a89ff0151cbbd54",
   "lastOpenFiles": [
+    "20_specific_models/dronePowertrainSizingNotes.md",
     "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
     "06_controls/impulse_and_step_response/manualImpulseAndStep.png",
     "11_basic_models/msdTheory.md",

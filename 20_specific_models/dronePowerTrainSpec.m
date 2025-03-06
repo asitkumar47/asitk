@@ -57,7 +57,7 @@ propHoverEta_nd     = 0.8;
 propCruiseEta_nd    = 0.75;
 numProp_nd          = 4;
 diskArea_nd         = numProp_nd * pi * propRadius_m^2;
-lByD_nd             = 12;
+lByD_nd             = 12; % need to be a function of cruise speed
 
 % powertrain params
 ptEta_nd            = 0.92;
