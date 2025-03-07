@@ -109,7 +109,7 @@ drone.numCellSeries_nd          = numCellSeries_nd;
 drone.numCellParallel_nd        = numCellParallel_nd;
 drone.totalBatteryEnergyNeeded_kWh = totalElecEnergy_kWh;
 drone.totalBatteryEnergy_kWh    = (numCellSeries_nd * cellNomVoltage_V) * (cellNomCapacity_Ah * numCellParallel_nd) / 1000 * numBattery_nd;
-drone.minTerminalVoltage_V      = numCellSeries_nd * 
+drone.minTerminalVoltage_V      = numCellSeries_nd * cellMinVoltage_V;
 
 
 %% print powertrain details
