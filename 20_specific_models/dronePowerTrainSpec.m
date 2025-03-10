@@ -38,7 +38,7 @@ clear, clc
 
 %% requirements
 rangeTwoWay_m       = 10 * 1609.34; 
-cruiseSpeed_mps     = 60 * 2.2369;
+cruiseSpeed_mps     = 60 / 2.2369;
 hoverTime_s         = 10 * 60;
 
 
