@@ -71,7 +71,32 @@ E_{total} = (t_{hover} \times P_{hover} + \frac{d}{v_{cruise}} \times P_{cruise}
 $$
 
 ## Cell architecture
+- number of cells in series is a simple
+$$
+n_s = \frac {V_{bat_{min}}} {V_{cell_{min}}}
+$$
+$V_{bat_{min}}$ is a requirement, $V_{cell_{min}}$ is cell specification
+- number of cells is parallel (#parallel branches of series cell) needs two main consideration
+	- energy required for the mission
+	- maximum discharge C-rate of the cell
+- if the cell chemistry doesn't allow, we might need to add parallel branches just to be below the maximum allowable discharge C-rates and end up with higher than required energy ^f66303
 
+
+## Choice of cell chemistry
+Comparison is limited to Li-Polymer and Li-ion
+- Li-Po is more popular for drones
+- Li-Po has more than twice the power density $W/kg$ (higher C-rates) and about 25% less energy density  $Wh/kg$
+- Depending on the ratio of battery-to-drone mass the 25% might look even less
+- But if the range requirements are *really* high, Li-ion batteries might be a better option as [[dronePowertrainSizingNotes#^f66303|this reasoning]] would no longer be valid
+- For *heavy* lifting Li-Po are a better option 
+- Other relevant differences - Li-Po $\rightarrow$
+	- life span is lower by about 50% (300 cycles)
+	- safety 
+		- more prone to swelling
+		- less prone to thermal runaway
+	- higher lowest operating voltage (part of reason why less energy dense)
+	- comes mostly in pouch configuration (as opposed to cylindrical Li-ion), but pouch cells might need structural reinforcements that might take away the volumetric density advantage of Li-Po (pouch cell) when it comes to making a battery with multiple cells
+		- note that when making a battery, the volumetric density drops for both types of cells (wasted space for cylindrical), (structural reinforcements for punch), but the mass density will also decrease for pouch cells
 
 <br>
 
