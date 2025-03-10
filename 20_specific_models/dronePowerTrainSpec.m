@@ -65,8 +65,9 @@ cellMaxVoltage_V    = 4.2;
 cellNomVoltage_V    = 3.7;
 cellMinVoltage_V    = 3;
 cellNomCapacity_Ah  = 5;
+cellMaxDischargeCrate_ph = 7;
 numBattery_nd       = 2;
-packMaxVoltage_V    = 48;
+packMaxVoltage_V    = 24;
 packMinVoltage_V    = packMaxVoltage_V * (cellMinVoltage_V / cellMaxVoltage_V);
 
 
@@ -90,19 +91,21 @@ cruiseTime_s        = rangeTwoWay_m / cruiseSpeed_mps;
 totalElecEnergy_kWh = (hoverTime_s * hoverElecPower_kW + cruiseTime_s * cruiseElecPower_kW) / 3600;
 
 
-% current
-maxBatCurrent_A     = max(hoverElecPower_kW, cruiseElecPower_kW) * 1000 / numBattery_nd / packMinVoltage_V;
-
-
 % cell architecture
 numCellSeries_nd    = floor(packMaxVoltage_V / cellMaxVoltage_V);
 packNomVoltage_V    = numCellSeries_nd * cellNomVoltage_V;
-numCellParallel_nd  = ceil(round((totalElecEnergy_kWh * 1000 / packNomVoltage_V / cellNomCapacity_Ah / numBattery_nd), 2));
+maxBatCurrent_A     = max(hoverElecPower_kW, cruiseElecPower_kW) * 1000 / numBattery_nd / (numCellSeries_nd * cellMinVoltage_V);
+numCellParallel_nd  = ceil(round(max(totalElecEnergy_kWh * 1000 / packNomVoltage_V / cellNomCapacity_Ah / numBattery_nd, ...
+                                     maxBatCurrent_A / (cellNomCapacity_Ah * cellMaxDischargeCrate_ph)), 2));
 totBatteryEnergy_kWh = (numCellSeries_nd * cellNomVoltage_V) * (cellNomCapacity_Ah * numCellParallel_nd) / 1000 * numBattery_nd;
+
+maxCellCurrent_A    = maxBatCurrent_A / numCellParallel_nd;
+maxCellCrate_ph     = maxCellCurrent_A / cellNomCapacity_Ah; % ph -> per hour
 
 %% collect salient details
 drone.hoverElectricalPower_kW   = hoverElecPower_kW;
 drone.cruiseElectricalPower_kW  = cruiseElecPower_kW;
+drone.maxCellCrate_ph           = maxCellCrate_ph;
 drone.maxBatteryCurrent_A       = maxBatCurrent_A;
 drone.numBat_nd                 = numBattery_nd;
 drone.numCellSeries_nd          = numCellSeries_nd;
@@ -116,7 +119,9 @@ drone.minTerminalVoltage_V      = numCellSeries_nd * cellMinVoltage_V;
 clc
 disp(compose("Hover  power (electrical)           = %.1f kW",  drone.hoverElectricalPower_kW));
 disp(compose("Cruise power (electrical)           = %.1f kW",  drone.cruiseElectricalPower_kW));
+disp(compose("Num batteries                       = %i",       drone.numBat_nd));
 disp(compose("Max battery Current                 = %.1f A",   drone.maxBatteryCurrent_A));
+disp(compose("Max cell C-rate                     = %.1f C",   drone.maxCellCrate_ph));
 disp(compose("Total energy needed    (electrical) = %.2f kWh", drone.totalBatteryEnergyNeeded_kWh));
 disp(compose("Total energy available (electrical) = %.2f kWh", drone.totalBatteryEnergy_kWh));
 disp(compose("Battery - Number of series cells    = %i ",      drone.numCellSeries_nd));
