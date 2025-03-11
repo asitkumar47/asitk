@@ -37,7 +37,7 @@
 clear, clc
 
 %% requirements
-rangeTwoWay_m       = 10 * 1609.34; 
+rangeTwoWay_m       = 60 * 1609.34; 
 cruiseSpeed_mps     = 60 / 2.2369;
 hoverTime_s         = 10 * 60;
 
@@ -50,7 +50,7 @@ airDensity_kgpm3    = 1.2;
 g_mps2              = 9.8;
 
 % drone params
-massDrone_kg        = 10; 
+massDrone_kg        = 15; 
 massPayload_kg      = 3.5;
 propRadius_m        = 0.2;
 propHoverEta_nd     = 0.8;

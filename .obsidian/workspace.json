@@ -15,7 +15,8 @@
               "state": {
                 "file": "20_specific_models/dronePowertrainSizingNotes.md",
                 "mode": "source",
-                "source": true
+                "source": true,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "dronePowertrainSizingNotes"
@@ -36,7 +37,8 @@
               "state": {
                 "file": "20_specific_models/dronePowertrainSizingNotes.md",
                 "mode": "preview",
-                "source": true
+                "source": true,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "dronePowertrainSizingNotes"
@@ -112,25 +114,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "aecc880c8e37138f",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "20_specific_models/dronePowertrainSizingNotes.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for dronePowertrainSizingNotes"
-            }
-          },
-          {
             "id": "44271f6c2c405df7",
             "type": "leaf",
             "state": {
@@ -191,7 +174,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e51b9e71f7657166",
+  "active": "93f5d8d3abc9dc8e",
   "lastOpenFiles": [
     "11_basic_models/10_aero/aero101.md",
     "20_specific_models/dronePowertrainSizingNotes.md",

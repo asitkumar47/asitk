@@ -101,4 +101,63 @@ Comparison is limited to Li-Polymer and Li-ion
 <br>
 
 # Motor sizing
+## Rating
+### Power rating
+This is same as battery power rating excluding $1/\eta_{powertrain}$
+$$
+P_{maxMotor} = max(P_{hover},\ P_{cruise})
+$$
+### Torque rating ($\tau$)
+**Data needed $\rightarrow$ Thrust vs. prop speed curve**
+Generally we have an upper limit on the radius of the propeller
+And we have the maximum thrust required as about 1.3 x weight of the drone (extra 30% for controllability)
+$$
+T_{max_{prop}} = \frac{W + 0.3W}{n_{prop}}
+$$
+Propeller speed required for $T_{max}$ can be found by
+$$
+\omega_{maxProp}\ (rad/s) = \frac{1}{R} \times \sqrt \frac{T_{max_{prop}}}{0.5C_T\rho (\pi R^2)}
+$$
+
+|Symbol           | Description|                Unit|
+|--------------|------------------|--------------------|
+| $T_{max}$     | maximum required thrust (per prop)| $N$|
+| $R$|radius of the prop|$m$|
+| $C_T$|thrust coefficient (0.1 - 0.2)|-|
+| $\rho$|air density|$kg/m^3$|
+
+Motor's torque rating can be found from Power rating and Speed rating (max) as
+$$
+\tau_{max} = \frac{P_maxMotor}{\omega_{maxProp}}
+$$
+
+Note: $C_T$ for a *particular* (fixed diameter, number of blades) propeller will vary wrt:
+- advance ratio (forward speed / propeller speed)
+- blade pitch
+- angle of attack (of the drone)
+- *low* propeller speeds where Reynold's number changes are significant
+
+
+## Aside on prop sizing
+By propeller sizing $\rightarrow$ 
+find the 
+1. propeller radius
+2. number of blades
+3. possibly pitch of the blades too
+
+such that
+1. thrust > $T_{max_{prop}}$
+2. radius < geometrical constraints
+3. noise < requirements
+
+Thrust
+$$
+T \propto \omega^2R^4
+$$
+
+This allows lower prop speed for the same thrust requirement, e.g., 10% increase in radius will reduce speed requirement by ~ 18%. This effect *may* be even more pronounced as coefficient of thrust also increases with propeller radius.
+
+Torque is supposed to increase with $R^3$ (to be researched)
+
+
 
