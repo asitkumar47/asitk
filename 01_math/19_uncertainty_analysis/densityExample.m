@@ -14,7 +14,9 @@ uWeight_N   = 1;
 uHeight_m   = 0.1 * 1e-2;
 uDiameter_m = 0.1 * 1e-2;
 
-% run monte-carlo
+%% analytical - error propagation method
+
+%% numerical - monte-carlo method
 n = 100000;
 p = 10;
 % normRandNumber = xmin + (xmax - xmin) * sum(rand(n, p), 2)/p
