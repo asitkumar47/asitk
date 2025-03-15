@@ -111,6 +111,9 @@ Comparative table
 |Popular AR|cylindrical|pouch|
 |Use case|long range|heavy lifting|
 
+
+## Thermals
+
 <br>
 
 # Motor sizing
@@ -168,8 +171,11 @@ $Q_{rotor}$ is minimal
 ### Heat loss
 $$Q_{cool} = Q_{cond} + Q_{conv} + Q_{rad}$$
 - $Q_{cond} \rightarrow$ motor to motor housing (Fourier's law)
-	- 
+	- depends on material property
 - $Q_{conv} \rightarrow$ airflow (forced conv.) over motor housing (Newton's law of cooling)
+	- doesn't depend on material property
+	- depends on fluid property
+	- depends on motor geometry
 - $Q_{rad} \rightarrow$ (Stefan-Boltzmann's law)
 
 For small/mid-sized air-cooled drones $\rightarrow$ forced convection is the main heat transfer means
@@ -179,11 +185,15 @@ This gives $a$ steady state temperature for a given set of operating conditions 
 
 ### Dynamic model
 #### Assumptions
-Lumped capacitance can be used for the motor housing becuase  Biot number $B_i = hL_c/k << 0.1$
+1. Lumped capacitance can be used for the motor housing becuase  Biot number $B_i = hL_c/k << 0.1$
 	$h$ convective HT coefficient
 	$k$ thermal conductivity (of motor housing)
 	$L_c$ characteristic length (volume / cooled surface area)
 	$L_c = L/2$ for a fat short cylinder ($R>>L$)
+2. The air-flow is turbulent  
+	1. this has implications on the constants in the Nuesselt number $N_u$ calculation equation
+3. The air flows perpendicular to the spin-axis of the motor
+	1. This has implications on the characteristic length used for Reynold number $R_e$ calculation that is, in turn used in the Nusselt number calculation
 
 #### Equations
 $$
@@ -233,7 +243,9 @@ $$
 
 
 
-### Natural vs. forced convection [link](https://www.youtube.com/watch?v=QHMsb13jRQw)
+### Natural vs. forced convection 
+[link1](https://www.youtube.com/watch?v=QHMsb13jRQw)
+[link2-Ansys](https://www.youtube.com/watch?v=6c4tx-521ZM&list=PLtt6-ZgUFmML8HGpk36IoKNkCKgqRAS-N&index=2)
 - Natural convection is the fluid motion driven by the density difference occurring due to temperature gradients
 - Forced convection is the fluid motion driven by an external force (fan, pump, wind)
 - Both are modeled by Newton's law of cooling
@@ -245,7 +257,7 @@ $$
 
 		- For natural convection
 $$
-N_u = C(G_rP_r)^n
+N_u = CR_a^n =C(G_rP_r)^n
 $$
 		- For forced convection
 $$
@@ -255,7 +267,7 @@ $$
 $k$ is thermal conductivity of the fluid ($W.m^-1K^-1$)
 $P_r$ is Prantl number
 $G_r$ is Grasshof number
-$C, m, n$ are constants
+$C, m, n$ are constants $\rightarrow$ geometry dependent (not fluid)*
 For more details look at [[basicThermals#Dimensionless numbers]]
 
 
@@ -275,7 +287,9 @@ For more details look at [[basicThermals#Dimensionless numbers]]
 
 
 ### Cooling efficiency
-
+$$
+\eta_{cooling} = \frac{T_{init}-T_{final}}{T_{init}-T_{ambient}}
+$$
 
 
 <br>
