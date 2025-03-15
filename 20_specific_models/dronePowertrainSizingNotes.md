@@ -92,11 +92,24 @@ Comparison is limited to Li-Polymer and Li-ion
 - Other relevant differences - Li-Po $\rightarrow$
 	- life span is lower by about 50% (300 cycles)
 	- safety 
-		- more prone to swelling
+		- more prone to swelling (flexible casing)
 		- less prone to thermal runaway
 	- higher lowest operating voltage (part of reason why less energy dense)
 	- comes mostly in pouch configuration (as opposed to cylindrical Li-ion), but pouch cells might need structural reinforcements that might take away the volumetric density advantage of Li-Po (pouch cell) when it comes to making a battery with multiple cells
 		- note that when making a battery, the volumetric density drops for both types of cells (wasted space for cylindrical), (structural reinforcements for punch), but the mass density will also decrease for pouch cells
+
+Comparative table
+
+|Chemistry$\rightarrow$<br>Property$\downarrow$|Li-ion|Li-Po|
+|-|-|-|
+|Energy density|1.25x||
+|Power density||2x|
+|Life||2x|
+|Thermal runaway||lower|
+|Swelling|lower||
+|Cost|lower||
+|Popular AR|cylindrical|pouch|
+|Use case|long range|heavy lifting|
 
 <br>
 
@@ -136,6 +149,136 @@ Note: $C_T$ for a *particular* (fixed diameter, number of blades) propeller will
 - blade pitch
 - angle of attack (of the drone)
 - *low* propeller speeds where Reynold's number changes are significant
+
+## Thermals
+
+### Heat generation
+$$
+Q_{gen} = Q_{stator} + Q_{mech}
+$$
+$$
+= (Q_{copper} + Q_{iron}) + (Q_{friction} + Q_{windage})   
+$$
+$$
+= (Q_{winding} + Q_{hysteresis} + Q_{eddycurrent}) + (Q_{friction} + Q_{windage})
+$$
+
+$Q_{rotor}$ is minimal 
+
+### Heat loss
+$$Q_{cool} = Q_{cond} + Q_{conv} + Q_{rad}$$
+- $Q_{cond} \rightarrow$ motor to motor housing (Fourier's law)
+	- 
+- $Q_{conv} \rightarrow$ airflow (forced conv.) over motor housing (Newton's law of cooling)
+- $Q_{rad} \rightarrow$ (Stefan-Boltzmann's law)
+
+For small/mid-sized air-cooled drones $\rightarrow$ forced convection is the main heat transfer means
+
+### Steady state analysis
+This gives $a$ steady state temperature for a given set of operating conditions (torque, speed, voltage, air flow, ambient temperature)
+
+### Dynamic model
+#### Assumptions
+Lumped capacitance can be used for the motor housing becuase  Biot number $B_i = hL_c/k << 0.1$
+	$h$ convective HT coefficient
+	$k$ thermal conductivity (of motor housing)
+	$L_c$ characteristic length (volume / cooled surface area)
+	$L_c = L/2$ for a fat short cylinder ($R>>L$)
+
+#### Equations
+$$
+mc_p\dot T = hA(T_{a} - T)
+$$
+$T$ is temperature of cylinder surface
+$T_{a}$ is air temperature
+
+$$
+h = \frac{N_u k}{D}
+$$
+$k$ is thermal conductivity of air $0.026 W.m^{-1}K^{-1}$ @room temperature
+$D$ is outer diameter of the cylinder $m$
+
+$$
+N_u = C R_e^mP_r^n
+$$
+$C, m, n = 0.023, 0.8, 0.33$ for turbulent flow
+$P_r$ is Prantl number $= 0.7$ for air
+
+$$
+R_e = \frac{\rho V_{air} L_c}{\mu}
+$$
+$V_{air}$ is air velocity $m/s$
+$L_c$ is characteristic length of the cylinder $m$
+$\mu$ is dynamic viscosity of air $Pa.s$
+
+Note $L_c$ depends on flow configuration and smoothness of the flow surface
+- for cross-flow on short-fat smooth cylinder (drone motor) $L_c = 2r_{cylinder}$
+- for cross-flow on short-fat finned cylinder $L_c = D_{hydraulic}$
+$$
+D_{hydraulic} = \frac{4A_{flow}}{P_{wet}}
+$$
+$A_{flow}$ is cross-sectional area of flow $m^2$
+$P_{wet}$ is wetter perimeter $m$
+
+
+### Addition of fins
+1. It increases effective surface area $A_{eff} = A + n_{fin}A_{fin}$
+2. It might increase $h$ too if the fins induce more turbulence
+
+Although cooling might not increase proportionally with increase in area due to fins. It depends on fin efficiency. Heat transfer equation might become
+$$
+mc_p\dot T = hA_{eff}\eta_{fin}(T_{a} - T)
+$$
+
+
+
+
+### Natural vs. forced convection [link](https://www.youtube.com/watch?v=QHMsb13jRQw)
+- Natural convection is the fluid motion driven by the density difference occurring due to temperature gradients
+- Forced convection is the fluid motion driven by an external force (fan, pump, wind)
+- Both are modeled by Newton's law of cooling
+	- $Q_{conv} = hA(T_{surface}. - T_{ambient})$
+- **The key difference is how the heat transfer coefficient $h$ is determined**
+	- calculation of heat transfer coefficient $h$ is same for for both cases
+	$$h = \frac{N_u k}{L}$$
+	- but calculation of $N_u$ varies
+
+		- For natural convection
+$$
+N_u = C(G_rP_r)^n
+$$
+		- For forced convection
+$$
+N_u = CR_e^mP_r^n
+$$
+
+$k$ is thermal conductivity of the fluid ($W.m^-1K^-1$)
+$P_r$ is Prantl number
+$G_r$ is Grasshof number
+$C, m, n$ are constants
+For more details look at [[basicThermals#Dimensionless numbers]]
+
+
+
+||Nat. conv.|Forced conv.|
+|-|-|-|
+|Key dimensionless number|Grashof's number $Gr$|Reynolds number $Re$|
+||||
+|Driving force|Buoyancy ($\Delta \rho$)|External force|
+|Cooling $\eta$|Low|High|
+
+#### Things to know
+- heat transfer is better in turbulent flow
+	- better fluid mixing increasing the convective heat transfer $h$
+	- mathematically $R_e$ is bigger for turbulent flow
+		- but note - $N_u$ dependence of $R_e$ also varies from laminar to turbulent flow
+
+
+### Cooling efficiency
+
+
+
+<br>
 
 
 ## Aside on prop sizing
