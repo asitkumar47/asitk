@@ -54,8 +54,8 @@ plot(tStepMatlab, xStepMatlab(:, 1)); grid on, hold on;
 plot(tStepManual, xStepManual(:, 1), '--'); title('Step response')
 ylabel('x1 (position m)')
 ax3 = subplot(2, 2, 3);
-plot(tStepMatlab, xStepMatlab(:, 1)); grid on, hold on;
-plot(tStepManual, xStepManual(:, 1), '--')
+plot(tStepMatlab, xStepMatlab(:, 2)); grid on, hold on;
+plot(tStepManual, xStepManual(:, 2), '--')
 ylabel('x2 (speed m/s)'); xlabel('Time (s)'); legend('Matlab', 'manual', 'Location', 'best')
 
 
