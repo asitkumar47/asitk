@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26_optimization/optimizationNotes.md",
+                "file": "21_basic_electrical/basicElectrical.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "optimizationNotes"
+              "title": "basicElectrical"
             },
             "group": "cad1becb00fc425e"
           }
@@ -35,13 +35,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26_optimization/optimizationNotes.md",
+                "file": "21_basic_electrical/basicElectrical.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "optimizationNotes"
+              "title": "basicElectrical"
             },
             "group": "cad1becb00fc425e"
           }
@@ -176,8 +176,11 @@
   },
   "active": "1dc05a32a97e4080",
   "lastOpenFiles": [
-    "20_specific_models/Review - motor cooling for UAVs.html",
+    "21_basic_electrical/ACnotes.md",
+    "21_basic_electrical/basicElectrical.md",
+    "21_basic_electrical/powerElectronicsNotes.md",
     "26_optimization/optimizationNotes.md",
+    "20_specific_models/Review - motor cooling for UAVs.html",
     "26_optimization",
     "20_specific_models/dronePowertrainSizingNotes.md",
     "22_basic_thermal/basicThermals.md",
@@ -187,9 +190,7 @@
     "20_specific_models/Review - motor cooling for UAVs.pdf",
     "20_specific_models/Unconfirmed 257503.crdownload",
     "20_specific_models/dronePowertrainSizingNotes.pdf",
-    "21_basic_electrical/powerElectronicsNotes.md",
     "01_math/19_uncertainty_analysis/untitled.slx.autosave",
-    "21_basic_electrical/ACnotes.md",
     "21_basic_electrical",
     "Untitled.md",
     "01_math/19_uncertainty_analysis/uncertaintyAnalysis.md",

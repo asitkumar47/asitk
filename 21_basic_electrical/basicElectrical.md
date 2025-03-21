@@ -1,0 +1,4 @@
+- Norton equivalent
+- Lowest resistance gives the highest power (for the same voltage supply)
+	- $P = V^2/R$
+- 
