@@ -4,18 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "98616353e90e8b9f",
+        "id": "6f13ec688a03caa2",
         "type": "tabs",
         "children": [
           {
-            "id": "0d4e6fcc528d223c",
+            "id": "ea47b6a7c261f0ed",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "12_battery/batteryModelingNotes.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "New tab"
-            }
+              "title": "batteryModelingNotes"
+            },
+            "group": "4afa588c2bac4a92"
+          }
+        ]
+      },
+      {
+        "id": "9393b4eff6bcc10f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4dfadfc8ccfe3bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "12_battery/batteryModelingNotes.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "batteryModelingNotes"
+            },
+            "group": "4afa588c2bac4a92"
           }
         ]
       }
@@ -74,7 +100,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 265.5,
+    "collapsed": true
   },
   "right": {
     "id": "b516d4aa6ba34aeb",
@@ -164,8 +191,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0d4e6fcc528d223c",
+  "active": "c4dfadfc8ccfe3bb",
   "lastOpenFiles": [
+    "12_battery/References/socEstimationReviewPaper2.pdf",
+    "12_battery/References/socEstimationReviewPaper1.pdf",
     "12_battery/batteryModelingNotes.md",
     "12_battery/generateTestData.asv",
     "12_battery/getCellPackParamFcn.m",
@@ -177,7 +206,6 @@
     "12_battery/References/PeukertEquationPaper.pdf",
     "01_math/eigsOfContinuousAndDiscreteSystems.pdf",
     "12_battery/References/batteryDiagrams.drawio",
-    "12_battery/batteryModelingNotes.pdf",
     "12_battery/References/pics/ECM.png",
     "12_battery/References/pics/ECM copy.svg",
     "12_battery/References/pics/ECM.svg",

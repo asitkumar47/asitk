@@ -85,7 +85,11 @@ Cumulative error becomes larger and larger
 
 
 #### Enhanced coulomb counting (ECC)
-This follows the crux of counting charge, but adds corrections in terms of:
+Problems to fix from CC
+1. initial soc problem
+2. integration error problem
+
+ECC follows the crux of counting charge, but adds corrections in terms of:
 - reseting battery SOC from SOC-OCV table as it rests beyond its largest time constant (this solves the initial SOC value problem with CC)
 	- it may be a table or a analytic curve (usually a logarithm fit is used to avoid the need of higher order polynomial fit)
 - adding correction terms like discharge efficiency and Peukert equation coefficient and generic current-based polynomial to the term that is integrated (this solves the lack of precision with current integration)
@@ -113,6 +117,8 @@ $$
 - The filter (observer) gain is tuned to balance how much we trust the predicted voltage vs. the measure voltage (basically how much weightage do we give to the voltage error)
 - This method relies heavily of the accuracy of the battery model, specifically in corner cases like high/low SOCs, high C-rates, high/low temperatures
 - Hence usually both model-based (HiFi) and ECC-based (LoFi) algorithms are run simultaneously and an algorithm decides when to use what, or if we need to fuse the SOCs predicted by both
+	- typically each estimation algorithm relies on sensors and these sensors have a validity bit (separate validity algorithm)
+	- depending on validity of critical signals to an algorithm, BMS can decide to switch from HiFi to LoFi estimation
 
 #### EKF
 - Most widely used SOC estimator
