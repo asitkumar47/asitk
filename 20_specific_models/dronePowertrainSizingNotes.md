@@ -104,7 +104,7 @@ Comparative table
 |-|-|-|
 |Energy density|1.25x||
 |Power density||2x|
-|Life||2x|
+|Life|2x||
 |Thermal runaway||lower|
 |Swelling|lower||
 |Cost|lower||
@@ -124,7 +124,11 @@ $$
 P_{maxMotor} = max(P_{hover},\ P_{cruise})
 $$
 ### Torque rating ($\tau$)
-**Data needed $\rightarrow$ Thrust vs. prop speed curve**
+**Data needed $\rightarrow$ Thrust vs. prop speed curve, power required**
+
+1. We know thrust required $\rightarrow$ find what speed (for a given propeller) will generate that thrust
+2. We now know speed required and power required $\rightarrow$ find torque required
+
 Generally we have an upper limit on the radius of the propeller
 And we have the maximum thrust required as about 1.3 x weight of the drone (extra 30% for controllability)
 $$
@@ -144,7 +148,7 @@ $$
 
 Motor's torque rating can be found from Power rating and Speed rating (max) as
 $$
-\tau_{max} = \frac{P_maxMotor}{\omega_{maxProp}}
+\tau_{max} = \frac{P_{maxMotor}}{\omega_{maxProp}}
 $$
 
 Note: $C_T$ for a *particular* (fixed diameter, number of blades) propeller will vary wrt:
@@ -152,6 +156,7 @@ Note: $C_T$ for a *particular* (fixed diameter, number of blades) propeller will
 - blade pitch
 - angle of attack (of the drone)
 - *low* propeller speeds where Reynold's number changes are significant
+****
 
 ## Thermals
 
@@ -181,7 +186,15 @@ $$Q_{cool} = Q_{cond} + Q_{conv} + Q_{rad}$$
 For small/mid-sized air-cooled drones $\rightarrow$ forced convection is the main heat transfer means
 
 ### Steady state analysis
-This gives $a$ steady state temperature for a given set of operating conditions (torque, speed, voltage, air flow, ambient temperature)
+- This gives $a$ steady state temperature for a given set of operating conditions (torque, speed, voltage, air flow, ambient temperature)
+- This essentially says what temperature delta is need to reject the same heat as total heat generated.
+$$
+hA(T_{motor}-T_{air}) = Q_{gen}
+$$
+
+$T_{motor}$ is the steady state temperature
+$Q_{gen}$ is the heat generated during $a$ particular phase of flight
+$h$ is the HT coefficient during that particular phase of flight
 
 ### Dynamic model
 #### Assumptions
