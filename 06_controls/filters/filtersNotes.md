@@ -47,3 +47,16 @@ Both magnitude and phase response are given by a ```bode``` plot.
 ### Phase response
 This defines the phase shift at different frequencies
 
+## Bandwidth characteristics
+Bandwidth refers to the range of frequencies a filter allows to pass through or attenuate. Bandwidth can mean slightly different for the type of filter.
+- low pass filter: bandwidth refers to the cut-off frequency $\omega_c$ (beyond which the gain (magnitude response) drops by -3dB)
+- high pass filter: bandwidth defined from the cut-off frequency $\omega_c$ to infinity
+- band-stop (notch) filter: bandwidth is the range of frequencies that are attenuated
+
+### Roll-off rate
+This is the rate at which the filter transitions from the passband (frequency passed through) to the stopband  
+This is given in dB/decade (1 decade is an order of magnitude of frequency)  
+**A $n^{th}$ order has a roll-off rate of $20 \times N\ dB/decade$**
+
+A second-order filter is common as it provides a high enough roll-off, but it adds one time-step delay. Why $\rightarrow$  
+In the time domain, a second-order filter has two integrators, which means it need two past values to produce an output, hence one time-step transport delay
