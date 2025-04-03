@@ -13,12 +13,37 @@ Common types of LTI filters are
 - band (notch) pass
 
 # Metrics to evaluate a filter
-1. magnitude response
-2. phase response
-3. delay
-4. roll-off rate (filter order)
-5. transition width
-6. stopband attenuation
-7. passband ripple
-8. stopband ripple
-9. pole-zero stability  
+1. Frequency response metrics
+  - magnitude response
+  - phase response
+  - delay
+2. Time domain metrics
+  - step response
+  - impulse response
+3. Bandwidth characteristics
+  - roll-off rate (filter order)
+  - transition width
+4. stopband, passband characteristics
+  - stopband attenuation
+  - passband ripple
+  - stopband ripple
+ 5. stability and causality
+
+## Frequency response
+Both magnitude and phase response are given by a ```bode``` plot.
+
+### Magnitude response
+1. describes how the filter attenuates / amplifies different frequency components
+2. this is typically measured in decibels (dB)   
+```math
+|H(jw)|_{dB} = log_{10}|H(jw)|
+```
+
+3. metrics used
+  - passband gain
+  - stopband attenuation
+  - cut-off frequency
+
+### Phase response
+This defines the phase shift at different frequencies
+
