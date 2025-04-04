@@ -37,6 +37,8 @@ If there are big sensor noise $W_n \uparrow$ the Kalman filter should trust the 
 
 In other words, trust the model or measurement depending on the ratio of the co-variance matrices ($V_d, V_n$)
 
+If the noise and disturbance are not independent, then there's a process and measurement noise cross-covariance matrix
+
 # Mathematical representation
 ## System augmentation
 To include the disturbance and noise, we augment the system matrices for $\dot x, y$
