@@ -14,19 +14,19 @@ Common types of LTI filters are
 
 # Metrics to evaluate a filter
 1. Frequency response metrics
-  - magnitude response
-  - phase response
-  - delay
+	  - magnitude response
+	  - phase response
+	  - delay
 2. Time domain metrics
-  - step response
-  - impulse response
+	  - step response
+	  - impulse response
 3. Bandwidth characteristics
-  - roll-off rate (filter order)
-  - transition width
+	  - roll-off rate (filter order)
+	  - transition width
 4. stopband, passband characteristics
-  - stopband attenuation
-  - passband ripple
-  - stopband ripple
+	  - stopband attenuation
+	  - passband ripple
+	  - stopband ripple
  5. stability and causality
 
 ## Frequency response
@@ -35,14 +35,14 @@ Both magnitude and phase response are given by a ```bode``` plot.
 ### Magnitude response
 1. describes how the filter attenuates / amplifies different frequency components
 2. this is typically measured in decibels (dB)   
-```math
+$$
 |H(jw)|_{dB} = log_{10}|H(jw)|
-```
+$$
 
 3. metrics used
-  - passband gain
-  - stopband attenuation
-  - cut-off frequency
+	  - passband gain
+	  - stopband attenuation
+	  - cut-off frequency
 
 ### Phase response
 This defines the phase shift at different frequencies
@@ -56,7 +56,8 @@ Bandwidth refers to the range of frequencies a filter allows to pass through or 
 ### Roll-off rate
 This is the rate at which the filter transitions from the passband (frequency passed through) to the stopband  
 This is given in dB/decade (1 decade is an order of magnitude of frequency)  
-**A $n^{th}$ order has a roll-off rate of $20 \times N\ dB/decade$**
+- **An $n^{th}$ order filter has a roll-off rate of $20 \times N\ dB/decade$**
+- **An $n^{th}$ order has an equivalent delay of $n-1$ time steps**
 
 A second-order filter is common as it provides a high enough roll-off, but it adds one time-step delay. Why $\rightarrow$  
 In the time domain, a second-order filter has two integrators, which means it need two past values to produce an output, hence one time-step transport delay

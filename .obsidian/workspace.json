@@ -1,49 +1,49 @@
 {
   "main": {
-    "id": "76090f46cb4d2b54",
+    "id": "9e427f5faa46f084",
     "type": "split",
     "children": [
       {
-        "id": "cb4c71d66652d751",
+        "id": "99a8c07d27d62ad8",
         "type": "tabs",
         "children": [
           {
-            "id": "54f870cb0015c808",
+            "id": "6fcb8f05aa0e8054",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06_controls/Kalman_filter/kalmanFilter.md",
+                "file": "06_controls/filters/filtersNotes.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "kalmanFilter"
+              "title": "filtersNotes"
             },
-            "group": "9f8b2f296dbb3999"
+            "group": "1d965f5af951d518"
           }
         ]
       },
       {
-        "id": "05146024a2d398b9",
+        "id": "8eab79e071d84d42",
         "type": "tabs",
         "children": [
           {
-            "id": "9e3703f4b816a947",
+            "id": "00061e1eaad76a53",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06_controls/Kalman_filter/kalmanFilter.md",
+                "file": "06_controls/filters/filtersNotes.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "kalmanFilter"
+              "title": "filtersNotes"
             },
-            "group": "9f8b2f296dbb3999"
+            "group": "1d965f5af951d518"
           }
         ]
       }
@@ -51,15 +51,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "df8d49f48d9d0aeb",
+    "id": "2a029afdf71e5b34",
     "type": "split",
     "children": [
       {
-        "id": "4877d8057f6b78fa",
+        "id": "1bbfb2a77e100d60",
         "type": "tabs",
         "children": [
           {
-            "id": "bcfb482824b64069",
+            "id": "33770feb4d43def7",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -72,7 +72,7 @@
             }
           },
           {
-            "id": "aa6e5b4380f7427f",
+            "id": "2f4d1bd4cd6a248c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -89,7 +89,7 @@
             }
           },
           {
-            "id": "9fa1b25ec3c51247",
+            "id": "e0ef0f05d3adc375",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -102,33 +102,33 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5,
+    "width": 300,
     "collapsed": true
   },
   "right": {
-    "id": "b516d4aa6ba34aeb",
+    "id": "393f5a2e293a6ead",
     "type": "split",
     "children": [
       {
-        "id": "cc05630f897efa82",
+        "id": "d922093d675c0cf2",
         "type": "tabs",
         "children": [
           {
-            "id": "44271f6c2c405df7",
+            "id": "5ce7b318332b0a3d",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from msdTheory"
+              "title": "Outgoing links from stepAndImpulseResponseNotes"
             }
           },
           {
-            "id": "b2f3770cbe9d60e1",
+            "id": "768d51c9444af366",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -143,26 +143,25 @@
             }
           },
           {
-            "id": "ef54c783cb99ef0f",
+            "id": "df8273b208cc1ddc",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "11_basic_models/msdTheory.md",
+                "file": "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of msdTheory"
+              "title": "Outline of stepAndImpulseResponseNotes"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 303.5,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
@@ -175,37 +174,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "54f870cb0015c808",
+  "active": "00061e1eaad76a53",
   "lastOpenFiles": [
+    "06_controls/Kalman_filter/kalmanFilter.md",
+    "12_battery/getCellPackParamFcn.m",
+    "12_battery/generateTestData.m",
+    "12_battery/ecmOdeFcn.m",
+    "12_battery/ecmModelFcn.m",
+    "12_battery/batteryModelingNotes.pdf",
+    "12_battery/batteryModelingNotes.md",
+    "12_battery/References/socEstimationReviewPaper2.pdf",
+    "12_battery/References/socEstimationReviewPaper1.pdf",
+    "12_battery/References/pics/ECM.svg",
+    "12_battery/References/batteryDiagrams.drawio",
+    "12_battery/References/PeukertEquationPaper.pdf",
+    "06_controls/filters/filtersNotes.md",
+    "06_controls/filters",
+    "01_math/eigsOfContinuousAndDiscreteSystems.md",
+    "20_specific_models/dronePowertrainSizingNotes.md",
     "06_controls/Kalman_filter/Observer.png",
     "06_controls/Kalman_filter/KF.png",
-    "06_controls/Kalman_filter/KF (4).png",
-    "06_controls/Kalman_filter/KF (3).png",
-    "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md",
-    "06_controls/Kalman_filter/kalmanFilter.md",
-    "Untitled.md",
-    "06_controls/Kalman_filter",
-    "21_basic_electrical/powerElectronicsNotes.md",
-    "01_math/19_uncertainty_analysis/untitled.slx.autosave",
-    "21_basic_electrical/ACnotes.md",
-    "21_basic_electrical",
-    "01_math/19_uncertainty_analysis/uncertaintyAnalysis.md",
-    "01_math/19_uncertainty_analysis/uncertaintyAnalysis.pdf",
-    "01_math/19_uncertainty_analysis/densityDistribution.png",
-    "01_math/19_uncertainty_analysis/densityExample.m",
-    "01_math/19_uncertainty_analysis/untitled.m",
-    "20_specific_models/dronePowertrainSizingNotes.md",
-    "11_basic_models/10_aero/aero101.md",
-    "20_specific_models/dronePowertrainSizingNotes.pdf",
-    "20_specific_models/dronePowertrainSizingNotes.m",
-    "11_basic_models/10_aero/dragCurve.png",
-    "11_basic_models/10_aero/dragCurve.jpg",
-    "11_basic_models/10_aero/dragCurve.webp",
-    "11_basic_models/10_aero/untitled.m",
-    "11_basic_models/10_aero",
-    "11_basic_models/01_MSD/msdTheory.md",
-    "06_controls/impulse_and_step_response/manualImpulseAndStep.png",
-    "11_basic_models/msdTheory.md",
-    "00_repo_target_content/targetMathContent.md"
+    "22_basic_thermal/basicThermals.md",
+    "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md"
   ]
 }
