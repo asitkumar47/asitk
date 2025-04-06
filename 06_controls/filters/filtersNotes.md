@@ -4,7 +4,8 @@ Filters play a significant role in signal processing, noise reduction, and state
 - time-invariant vs. time-variant
 - causal vs. non-causal
 - analog vs. digital
-
+- active vs. passive
+****
 # LTI filters
 Linear time-invariant filters can be represented as transfer functions, impulse response, or state space format. The most common representation is a transfer function.
 Common types of LTI filters are
@@ -61,3 +62,9 @@ This is given in dB/decade (1 decade is an order of magnitude of frequency)
 
 A second-order filter is common as it provides a high enough roll-off, but it adds one time-step delay. Why $\rightarrow$  
 In the time domain, a second-order filter has two integrators, which means it need two past values to produce an output, hence one time-step transport delay
+
+
+****
+# Active vs. passive filters
+Passive filters use passive components like R, L, and C. Active filters, in addition to R, L, and C, contain active components like transistor and opAmps.
+
