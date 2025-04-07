@@ -41,9 +41,12 @@ Reference - [DC_capacitor_sizing_paper.pdf](https://ieeexplore.ieee.org/stamp/st
 3. high self-resonance frequency (equivalent series inductance)
 4. decreasing resistance with frequency $\uparrow$ (hence take adv. of higher frequency operation)
 	1. higher frequency of switching $f_{sw}$? or higher electrical frequency $f_e$, i.e., high speed motor operation?
-5. 
+
 
 ## Types of DC-link capacitors
+![[dcLinkCapConstruction.png|400]]
+Internal layers of a) film capacitors, b) ceramic capcitors
+
 1. electrolytic
 	1. high energy density
 	2. other metrics - not so good
@@ -54,10 +57,31 @@ Reference - [DC_capacitor_sizing_paper.pdf](https://ieeexplore.ieee.org/stamp/st
 		2. reliable (self-healing property)
 	3. cons:
 		1. ESR stays constant in the frequency range of 10-100 kHz
-		2. beyond that $\text{ESR} \propto \sqrt f_{sw}$ due to AC skin effect
-		3. so power loss and RMS current capacity remain constant or get worse with increase in frequency
-		4. low self-resonance (high equivalent series inductance) due to large physical size
+			1. beyond that $\text{ESR} \propto \sqrt f_{sw}$ due to AC skin effect
+			2. so power loss and RMS current capacity remain constant or get worse with increase in frequency
+		2. ESR stays constant with temperature
+		3. low self-resonance (high equivalent series inductance) due to large physical size
+		4. they self-heat and require thermal management
 3. ceramic-based
+	1. three types - class I (C0G), II (X7R), III (PLZT)
+	2. the internal structure is usually multilayered 
+	3. pros:
+		1. ESR decreases with switching frequency $\rightarrow \text{ESR} \propto f_{sw}$
+		2. ESR decreases with temperature (class III)
+			1. even if ESR decreases with temperature, the capacitance also reduces (higher current)
+			2. this provides a natural balancing effect and avoids thermal run away
+			3. since, resistance decreases and current increases, heat generation doesn't necessarily decrease
+			4. but it is still better than film-capacitors at very high $f_{sw}$ as its ESR stays constant with temperature, but increases with frequency $\text{ESR} \propto \sqrt{f_{sw}}$
+		3. in general, higher specific RMS current capacity compared to film capacitors
+			1. $I_{RMS} \propto f_{sw}$
+		4. low equivalent series inductance
+	4. cons:
+		1. class II ceramic caps are prone to crack with vibrations
+		2. class II ceramic caps have reduced capacitance with increasing DC voltage and temperature
+
+![[filmVsCeramicPropertyComparison.png|400]]
+ESR dependence on switching frequency and capacitor temperature for film-capacitors (a, c) and ceramic-capacitors (b, d)
+
 ****
 
 
