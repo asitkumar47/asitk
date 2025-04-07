@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "13_electric_motor/electricMotorNotes.md",
+                "file": "21_basic_electrical/powerElectronicsNotes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "electricMotorNotes"
+              "title": "powerElectronicsNotes"
             }
           }
         ]
@@ -152,6 +152,9 @@
   },
   "active": "9996aa9101dbb4c6",
   "lastOpenFiles": [
+    "13_electric_motor/electricMotorNotes.md",
+    "21_basic_electrical/powerElectronicsNotes.md",
+    "21_basic_electrical/ACnotes.md",
     "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
     "13_electric_motor/pics/SCR-20250406-pmum-2.png",
     "13_electric_motor/pics/dcLinkCapConstruction.png",
@@ -162,8 +165,6 @@
     "13_electric_motor/Pasted image 20250406124631.png",
     "Pasted image 20250406124631.png",
     "13_electric_motor/DC_capacitor_sizing_paper.pdf",
-    "21_basic_electrical/powerElectronicsNotes.md",
-    "13_electric_motor/electricMotorNotes.md",
     "06_controls/filters/filtersNotes.md",
     "13_electric_motor",
     "06_controls/Kalman_filter/kalmanFilter.md",

@@ -26,6 +26,13 @@ Schematic of a two-level drive inverter
 
 # DC capacitor
 Reference - [DC_capacitor_sizing_paper.pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9807220)
+
+## Why is it needed?
+The DC link capacitor for a 3-phase inverter in an electric drive motor is critical for 
+- smooth out voltage ripple from switching 
+	- not stabilizing the variation from DC supply
+- absorbing ripple currents
+- supporting transient loads
 ## High-level notes
 1. DC link capacitor is usually the bulkiest component of the inverter
 2. it imposes a limit on power density of the converter (inverter)
