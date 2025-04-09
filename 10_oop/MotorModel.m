@@ -1,11 +1,11 @@
-classdef MotorModel
-    
+classdef MotorModel < handle
+
     properties
         propSpeedModel
         motorThermalModel
         motorEfficiencyModel
     end
-    
+
 
     methods
         function obj = MotorModel(propSpeedModel, motorThermalModel, motorEfficiencyModel)
@@ -14,7 +14,7 @@ classdef MotorModel
             obj.motorEfficiencyModel    = motorEfficiencyModel;
         end
 
-        
+
         % ODE model (prop-speed and motor-temperature)
         function dxdt = computeDerivative(obj, t, x, u)
             xs = x(1); % prop speed
@@ -30,17 +30,17 @@ classdef MotorModel
 
         % hvdc current model
         function motorDcCurrent_A = computeMotorCurrent(obj, ...
-                        batteryVoltage_V, propSpeed_radps, motorTorque_Nm)
+                batteryVoltage_V, propSpeed_radps, motorTorque_Nm)
             % find efficiency
-            motorEfficiency_nd = obj.motorEfficiencyModel.computeEfficieny( ... 
-                        batteryVoltage_V, propSpeed_radps, motorTorque_Nm);
-            
+            motorEfficiency_nd = obj.motorEfficiencyModel.computeEfficieny( ...
+                batteryVoltage_V, propSpeed_radps, motorTorque_Nm);
+
             % find dc current
             if propSpeed_radps * motorTorque_Nm >= 0
                 motorDcCurrent_A = 1/motorEfficiency_nd * (propSpeed_radps * motorTorque_Nm / batteryVoltage_V);
             else
                 motorDcCurrent_A = motorEfficiency_nd * (propSpeed_radps * motorTorque_Nm / batteryVoltage_V);
-            end        
+            end
         end
     end
 end

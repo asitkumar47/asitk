@@ -1,4 +1,4 @@
-classdef PropSpeedModel
+classdef PropSpeedModel < handle
     
     properties
         inertia_kgm2
