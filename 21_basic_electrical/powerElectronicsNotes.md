@@ -40,6 +40,9 @@
 - **The limitations of MOSFETs (medium voltage and power) is overcome by SiC MOSFETs (not Si)**
 	- Tesla cars used to have IGBTs as MOSFETs couldn't handle high power applications
 	- but now Tesla has moved to SiC MOSFETs
+- Why MOSFET at *lower* vs. IGBT at *higher* voltage?
+	- MOSFET's ON state looks like a resistor (higher the voltage, higher the forward-drop)
+	- IGBT's ON state looks like a constant drop (forward-drop independent of voltage)
 
 |**Feature**|**BJT**|**MOSFET**|**IGBT**|
 |---|---|---|---|

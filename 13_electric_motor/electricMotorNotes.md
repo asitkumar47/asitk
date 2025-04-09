@@ -26,6 +26,7 @@ Schematic of a two-level drive inverter
 
 # DC capacitor
 Reference - [DC_capacitor_sizing_paper.pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9807220)
+[googleDrive](https://drive.google.com/file/d/1MW1S8p4kbWLll2d0LCQThpAXMReQ3lCD/view?usp=drive_link)
 
 ## Why is it needed?
 The DC link capacitor for a 3-phase inverter in an electric drive motor is critical for 
