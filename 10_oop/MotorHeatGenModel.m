@@ -1,16 +1,17 @@
 classdef MotorHeatGenModel < handle
-
+%==========================================================================
     properties
-        qGenCoeff_nd % W/W
+        motorEta_nd 
     end
-
+%==========================================================================
     methods
-        function obj = MotorHeatGenModel(params)
-            obj.qGenCoeff_nd = params.qGenCoeff_nd;
+        function obj = MotorHeatGenModel(param)
+            obj.motorEta_nd = param.motorEta_nd;
         end
 
-        function qGen_W = computeHeatGen(motorTorque, motorSpd_radps)
-            qGen_W = obj.qGenCoeff_nd * motorTorque * motorSpd_radps;
+        function qGen_W = computeHeatGen(obj, motorTorque_Nm, motorSpd_radps)
+            qGen_W = abs((1 - obj.motorEta_nd) * motorTorque_Nm * motorSpd_radps);
         end
     end
+%==========================================================================
 end
