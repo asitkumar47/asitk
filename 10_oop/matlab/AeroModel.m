@@ -9,8 +9,8 @@ classdef AeroModel < handle
             obj.dQdOm2_Nms2 = params.dQdOm2_Nms2;
         end
 
-        function aeroTorque_Nm = computeAeroTorque(propSpd_radps)
-            aeroTorque_Nm = obj.dQdOm2_Nms2 * propSpd_radps ^ 2;
+        function aeroTorque_Nm = computeAeroTorque(motorSpd_radps)
+            aeroTorque_Nm = obj.dQdOm2_Nms2 * motorSpd_radps ^ 2;
         end
     end
 end

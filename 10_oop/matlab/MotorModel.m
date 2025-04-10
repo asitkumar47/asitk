@@ -1,29 +1,30 @@
 classdef MotorModel < handle
 %==========================================================================
     properties
-        propSpeedModel
+        motorSpeedModel
         motorThermalModel
     end
 
 %==========================================================================
     methods
-        function obj = MotorModel(propSpeedModel, motorThermalModel)
-            obj.propSpeedModel          = propSpeedModel;
+        function obj = MotorModel(motorSpeedModel, motorThermalModel)
+            obj.motorSpeedModel         = motorSpeedModel;
             obj.motorThermalModel       = motorThermalModel;
         end
 
 %--------------------------------------------------------------------------
         % run ode model (motor speed, motor temperature)
         function dxdt = computeDerivative(obj, ~, ...
-                        motorSpd_radps, motorTemp_degC, ... % x
-                        aeroTorque_Nm, ambientTemp_degC)    % u
-            dOmega_radps2 = obj.propSpeedModel.computeDerivative( ...
-                            motorSpd_radps, ...             % x
-                            aeroTorque_Nm);                 % t
+                        motorSpd_radps, motorTemp_degC, ...                 % x
+                        motorTorque_Nm, aeroTorque_Nm, ambientTemp_degC)    % u
+
+            dOmega_radps2 = obj.motorSpeedModel.computeDerivative( ...
+                        motorSpd_radps, ...                                 % x
+                        motorTorque_Nm, aeroTorque_Nm);                     % u
 
             dMotorTemp_degCps = obj.motorThermalModel.computeDerivative( ...
-                                motorTemp_degC, ...         % x
-                                ambientTemp_degC);          % u
+                        motorTemp_degC, ...                                 % x            
+                        motorSpd_radps, motorTorque_Nm, ambientTemp_degC);  % u
             
             dxdt = [dOmega_radps2, dMotorTemp_degCps];
         end

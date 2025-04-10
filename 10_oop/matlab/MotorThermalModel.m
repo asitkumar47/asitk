@@ -1,33 +1,47 @@
 classdef MotorThermalModel < handle
-    
+%==========================================================================
     properties
-        convArea_m2
-        htc_Wpm2pK
-        m_kg
-        cp_JpkgpK
+        motorMass_kg
+        motorCp_JpkgpK
         motorHeatGenModel
+        motorHeatLossModel
     end
-    
-    methods
-        function obj = MotorThermalModel(params)
-            obj.convArea_m2 = params.convArea_m2;
-            obj.htc_Wpm2pK  = params.htc_Wpm2pK;
-            obj.m_kg        = params.m_kg;
-            obj.cp_JpkgpK   = params.cp_JpkgpK;
-            obj.motorHeatGenModel = motorHeatHenModel;
-        end
-        
-        function dxdt = computeDerivative(obj, ~, x, u)
-            motorTemp_degC = x;
-            ambientTemp_degC = u(1);
-            motorTorque_Nm = u(2);
-            propSpd_radps = u(3);
 
-            qGen_W  = obj.motorHeatGenModel(motorTorque_Nm, propSpd_radps);
-            qLoss_W = obj.htc_Wpm2pK * obj.convArea_m2 * (motorTemp_degC - ambientTemp_degC);
-            
-            dxdt = (qGen_W - qLoss_W) / (obj.m_kg * obj.cp_JpkgpK); % dMotorTemp/dt
+%==========================================================================
+    % self-instantiation
+    methods
+        function obj = MotorThermalModel(param, motorHeatGenModel, motorHeatLossModel)
+            obj.motorMass_kg        = param.motorMass_kg;
+            obj.motorCp_JpkgpK      = param.motorCp_JpkgpK;
+            obj.motorHeatGenModel   = motorHeatGenModel;
+            obj.motorHeatLossModel  = motorHeatLossModel;
         end
+
+%--------------------------------------------------------------------------
+        % run ODE model (motor temperature)
+        function dxdt = computeDerivative(obj, ~, ...
+                        motorTemp_degC, ...
+                        motorSpd_radps, motorTorque_Nm, ambientTemp_degC)
+            
+            qGen_W  = obj.motorHeatGenModel(motorSpd_radps, motorTorque_Nm);
+            qLoss_W = obj.motorHeatLossModel(motorTemp_degC, ambientTemp_degC);
+            
+            dxdt = (qGen_W - qLoss_W) / (obj.motorMass_kg * obj.motorCp_JpkgpK);
+        end
+    end
+
+%==========================================================================
+    methods (Static)
+        function motorThermalModel = make(param)
+            % construct models in motorThermalModel
+            motorHeatGenModel  = MotorHeatGenModel(param.qGen);
+            motorHeatLossModel = MotorHeatLossModel(param.qLoss);
+
+            % construct motorThermalModel
+            motorThermalModel = MotorThermalModel(param, motorHeatGenModel, motorHeatLossModel);
+        end
+
+%==========================================================================
     end
 end
 
