@@ -11,8 +11,10 @@ This contains the notes for both the motor and inverter.
 	1. DC-capacitor
 	2. Switches
 4. Modeling
-	1. loss modelin
+	1. loss modeling
 	2. thermal modeling
+5. Drops of pearl
+	1. magnet temperature and $K_t$ 
 ****
 # Motor
 
@@ -91,6 +93,10 @@ Internal layers of a) film capacitors, b) ceramic capcitors
 ESR dependence on switching frequency and capacitor temperature for film-capacitors (a, c) and ceramic-capacitors (b, d)
 
 ****
-
+# Drops of pearl
+## Magnet temperature and $K_t$
+As magnet temperature rises, the torque constant decreases (linearly). If the control algorithm estimates / senses flux, it will see the weakening magnetic field and inject more current $i_q$ to produce the same torque.
+From test data, if we see $i_q$ doesn't change and we are getting the same torque, that means magnets are not getting hotter.
+Oil temperature should co-related with magnet temperature by an offset. If we see an increasing oil temperature and still getting the same torque per $i_q$ the magnets are staying cool by some unknown means.
 
 
