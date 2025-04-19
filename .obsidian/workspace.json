@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "13_electric_motor/electricMotorNotes.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "electricMotorNotes"
+              "title": "batteryModelingNotes"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "393f5a2e293a6ead",
@@ -152,8 +153,13 @@
   },
   "active": "9996aa9101dbb4c6",
   "lastOpenFiles": [
-    "21_basic_electrical/powerElectronicsNotes.md",
+    "Untitled.md",
+    "12_battery/batteryModelingNotes.md",
+    "12_battery/References/pics/parallelCellEcm.png",
+    "12_battery/parallelCellEcm.png",
+    "parallelCellEcm.png",
     "13_electric_motor/electricMotorNotes.md",
+    "21_basic_electrical/powerElectronicsNotes.md",
     "21_basic_electrical/ACnotes.md",
     "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
     "13_electric_motor/pics/SCR-20250406-pmum-2.png",
@@ -173,13 +179,9 @@
     "12_battery/ecmOdeFcn.m",
     "12_battery/ecmModelFcn.m",
     "12_battery/batteryModelingNotes.pdf",
-    "12_battery/batteryModelingNotes.md",
     "12_battery/References/socEstimationReviewPaper2.pdf",
-    "12_battery/References/pics/ECM.svg",
     "01_math/eigsOfContinuousAndDiscreteSystems.md",
     "20_specific_models/dronePowertrainSizingNotes.md",
-    "06_controls/Kalman_filter/Observer.png",
-    "06_controls/Kalman_filter/KF.png",
     "22_basic_thermal/basicThermals.md",
     "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md"
   ]

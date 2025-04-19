@@ -42,8 +42,46 @@ The following parameters need to be estimated
 ## $r_0, r_n, c_n$ estimation
 A comprehensive method is not documented. Only a discharge part without temperature dependence is exemplified in the code `xyz.m`
 
+# Scaling the ECM model
+## Overview
+Generally, when the objective is to model a battery pack, the cell params are scaled as per cell-architecture of the pack such that the pack is represented as a giant cell. That approach works well on the system level when the intent of the pack model is to provide *voltage* to other powertrain models and consume a *current*. The overall objective of the vehicle model in that case is power balance and overall energy consumption prediction.
+
+This approach does not work well if the battery model (plant) is used for BMS model development or simulation. The BMS models at a *minimum* needs the max and min cell states (voltage, SOC, temperature), and preferably needs a spread of these states depending on the computational capacity.
+
+The modeling approach in that case is to put together a bunch of *unit cell ECM models*. A unit cell model takes current as input and produces voltage as output. If we arrange a bunch of cells ECM models in series they all consume the same current (total current drawn from the battery) - so no problems there. But as soon as we put ECM models in parallel, we need to find the current splits for the ECM model branches. At the surface, it might look we need to solve a bunch of simultaneous equations which gives both the voltages and split-currents. But taking a closer look - the initial drop of a ECM model has to do with $r_0$ and the RC pairs do not play any role in deciding the current. So a parallel set of ECM model's current split can be calculated by a simple current split for a simple parallel resistance ($r_0$) circuit. Now that we have the current split, we set those as inputs to the ECM model for dynamics and terminal voltage calculation.
+
+## Comparing two models solving approaches
+### Model architecture
+![[parallelCellEcm.png]]
 
 
+### Equations
+#### Branch currents
+Branch currents depend of parameters, state variables and inputs ($i_{br}$) from **all** branches.
+###### Simultaneous solution
+$$
+i_a = (E_{a_0} - E_{b_0} + ir_{a_0} - V_{C_{a_1}} - V_{C_{a_2}} + V_{C_{b_1}} + V_{C_{b_2}}) / (r_{a_0} + r_{b_0})
+$$
+$$
+i_b = (E_{b_0} - E_{a_0} + ir_{b_0} - V_{C_{b_1}} - V_{C_{b_2}} + V_{C_{a_1}} + V_{C_{a_2}}) / (r_{a_0} + r_{b_0})
+$$
+
+###### Resistor divider solution
+$$
+i_a = i \times \frac{r_{b_0}}{r_{a_0} + r_{b_0}}
+$$
+$$
+i_b = i \times \frac{r_{a_0}}{r_{a_0} + r_{b_0}}
+$$
+
+#### Capacitor voltage
+Capacitor voltages depend on parameters, state variables and input ($i_{br}$) from the **respective** branch. We'll have 4 equations similar to this for the 4 RC pairs.
+$$
+\dot V_{C_{a_1}} = \frac{i_{a}}{C_{a_i}} - \frac{V_{C_{a_1}}}{r_{a_{1}}C_{a_i}}
+$$
+****
+<br>
+****
 ## Quick doubts
 1. Finding out OCV-SOC curve $\rightarrow$ the C/30 charge/discharge cycles are wrt time. It establishes 0% and 100% SOC in terms of pre-defined $v_{min}$ and  $v_{max}$. How do you define SOC-OCV in the intermediate points?
 	- We find capacity $Q$ and convert the time x-axis to SOC (%) as $SOC = (1 - \sum_{1}^k \frac{i}{Q}) \times 100\ \\\%$
