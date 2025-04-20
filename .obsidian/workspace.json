@@ -96,12 +96,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "06_controls/filters/filtersNotes.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from filtersNotes"
+              "title": "Outgoing links from batteryModelingNotes"
             }
           },
           {

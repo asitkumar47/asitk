@@ -11,9 +11,10 @@ $r_n, c_n \rightarrow resistance\ and\ capacitances\ (\ohm, F)$
 
 ## Model equations
 ### Electrical model
+Positive $i$ is discharge.
 $$V_t=E_0-\sum_{1}^n V_{c_n}-ir_0$$
 $$\frac{dV_{c_n}}{dt}=\frac{i}{c_n}-\frac{V_{c_n}}{r_nc_n}$$
-$$\frac{soc}{dt}=\frac{-i}{Q_{Ah}\times 3600}$$
+$$\frac{d(soc)}{dt}=\frac{-i}{Q_{Ah}\times 3600}$$
 
 ### Thermal model
 $$P_{heatGen}=i^2r_0 + \sum_{1}^n\frac{V_{c_n}^2}{r_n}$$
@@ -23,7 +24,7 @@ $$P_{heatOut}=$$
 1. EChM are usually coupled nonlinear partial differential equations, which take significantly higher time to run, but they characterize battery impedance more accurately
 2. They typically have higher number of parameters to be identified and hence are prone to overfitting
 3. Fractional order models (FOM) seem to be a middle ground between ECM and EChM
-
+****
 <div style="page-break-after: always;"></div>
 
 # Parameter estimation
@@ -41,6 +42,8 @@ The following parameters need to be estimated
 
 ## $r_0, r_n, c_n$ estimation
 A comprehensive method is not documented. Only a discharge part without temperature dependence is exemplified in the code `xyz.m`
+****
+<div style="page-break-after: always;"></div>
 
 # Scaling the ECM model
 ## Overview
@@ -100,18 +103,17 @@ From the 1st subplot it can be seen that the initial drop is same, but the RC pa
 
 
 
-****
-<br>
+
 ****
 ## Quick doubts
 1. Finding out OCV-SOC curve $\rightarrow$ the C/30 charge/discharge cycles are wrt time. It establishes 0% and 100% SOC in terms of pre-defined $v_{min}$ and  $v_{max}$. How do you define SOC-OCV in the intermediate points?
 	- We find capacity $Q$ and convert the time x-axis to SOC (%) as $SOC = (1 - \sum_{1}^k \frac{i}{Q}) \times 100\ \\\%$
 2. 
-
+****
 ## Asides
 1. Fractional order models
 
-
+****
 <div style="page-break-after: always;"></div>
 
 # BMS
