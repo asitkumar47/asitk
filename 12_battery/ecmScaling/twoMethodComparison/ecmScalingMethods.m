@@ -22,11 +22,11 @@ clear, clc
 ocvA_V = 4; % brnach A OCV
 ocvB_V = 4;
 r0A_Ohm = 0.005;
-r0B_Ohm = 0.01;
+r0B_Ohm = 0.015;
 r1A_Ohm = 0.004;
 r1B_Ohm = 0.004;
 r2A_Ohm = 0.007;
-r2B_Ohm = 0.01;
+r2B_Ohm = 0.007;
 c1A_F   = 5 / r1A_Ohm;
 c1B_F   = 5 / r1B_Ohm;
 c2A_F   = 25 / r2A_Ohm;
@@ -78,17 +78,38 @@ for iT = 1:length(t_s)
     VtM2_V(iT + 1) = ocvA_V - iAM2_A(iT) * r0A_Ohm - vc1AM2_V(iT + 1) - vc1BM2_V(iT + 1);
 end
 
+%%
 figure(1); clf; 
-ax1 = subplot(2, 1, 1);
+ax1 = subplot(2, 2, 1);
 yyaxis left
 plot(t_s, VtM1_V(2: end), 'LineWidth', 1); grid on, hold on;
-plot(t_s, VtM2_V(2: end), '--', 'LineWidth', 2); title('Terminal voltage')
+plot(t_s, VtM2_V(2: end), '--', 'LineWidth', 2); title('Terminal voltage'); ylabel('V')
 yyaxis right
-plot(t_s, (VtM1_V(2: end) - VtM2_V(2: end)) ./ VtM1_V(2:end) * 100, 'LineWidth', 1);
+plot(t_s, (VtM1_V(2: end) - VtM2_V(2: end)) ./ VtM1_V(2:end) * 100, 'LineWidth', 1); ylabel('%')
 legend('Method 1 - simultaneous solving', 'Method 2 - resistor divider', 'error (%)')
 
-ax2 = subplot(2, 1, 2);
+ax2 = subplot(2, 2, 3);
+yyaxis left
+plot(t_s, iAM1_A(2:end) + iBM1_A(2:end), 'LineWidth', 1.5); grid on; title('Method 1 - sum of branch currents'); 
+ylim([1.1, 1.1] .* [(min(i_A) - 1), (max(i_A) + 1)])
+yyaxis right
+plot(t_s, i_A - (iAM1_A(2:end) + iBM1_A(2:end)), 'LineWidth', 1); ylim([-1 1])
+ylabel('A'); xlabel('Time (s)'); legend('Method 1 $\rightarrow \sum$ brnach currents', 'error (A)', 'interpreter', 'latex')
+
+ax3 = subplot(2, 2, 2);
 yyaxis left
 plot(t_s, iAM1_A(2:end), 'LineWidth', 1); grid on; hold on;
-plot(t_s, iAM2_A(2:end), '--', 'LineWidth', 2); title('Branch A current')
-legend('Method 1 - simultaneous solving', 'Method 2 - resistor divider')
+plot(t_s, iAM2_A(2:end), '--', 'LineWidth', 2); title('Branch A current');  ylabel('A')
+yyaxis right
+plot(t_s, (iAM1_A(2:end) - iAM2_A(2:end)) ./ iAM1_A(2:end) * 100, 'LineWidth', 1); ylabel('%')
+legend('Method 1 - simultaneous solving', 'Method 2 - resistor divider', 'error (%)')
+
+ax4 = subplot(2, 2, 4);
+yyaxis left
+plot(t_s, iBM1_A(2:end), 'LineWidth', 1); grid on; hold on;
+plot(t_s, iBM2_A(2:end), '--', 'LineWidth', 2); title('Branch B current'); ylabel('A')
+yyaxis right
+plot(t_s, (iBM1_A(2:end) - iBM2_A(2:end)) ./ iBM1_A(2:end) * 100, 'LineWidth', 1)
+legend('Method 1 - simultaneous solving', 'Method 2 - resistor divider', 'error (%)'); ylabel('%'); xlabel('Time (s)')
+
+set([ax1, ax2, ax3, ax4], 'FontSize', 16)
