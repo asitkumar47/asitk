@@ -153,6 +153,7 @@
   },
   "active": "15f76db45fdb3310",
   "lastOpenFiles": [
+    "11_basic_models/02_propeller_shaft/propShaftModelNotes.pdf",
     "11_basic_models/02_propeller_shaft/propShaftParamVariation.png",
     "11_basic_models/02_propeller_shaft/propShaftParamVariation.fig",
     "11_basic_models/02_propeller_shaft/propShaft.asv",
@@ -179,7 +180,6 @@
     "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
     "13_electric_motor/pics/SCR-20250406-pmum-2.png",
     "13_electric_motor/pics/dcLinkCapConstruction.png",
-    "13_electric_motor/pics/inverterSchematic.png",
     "06_controls/filters/filtersNotes.md",
     "06_controls/Kalman_filter/kalmanFilter.md",
     "01_math/eigsOfContinuousAndDiscreteSystems.md",
