@@ -11,9 +11,10 @@ $r_n, c_n \rightarrow resistance\ and\ capacitances\ (\ohm, F)$
 
 ## Model equations
 ### Electrical model
+Positive $i$ is discharge.
 $$V_t=E_0-\sum_{1}^n V_{c_n}-ir_0$$
 $$\frac{dV_{c_n}}{dt}=\frac{i}{c_n}-\frac{V_{c_n}}{r_nc_n}$$
-$$\frac{soc}{dt}=\frac{-i}{Q_{Ah}\times 3600}$$
+$$\frac{d(soc)}{dt}=\frac{-i}{Q_{Ah}\times 3600}$$
 
 ### Thermal model
 $$P_{heatGen}=i^2r_0 + \sum_{1}^n\frac{V_{c_n}^2}{r_n}$$
@@ -23,7 +24,7 @@ $$P_{heatOut}=$$
 1. EChM are usually coupled nonlinear partial differential equations, which take significantly higher time to run, but they characterize battery impedance more accurately
 2. They typically have higher number of parameters to be identified and hence are prone to overfitting
 3. Fractional order models (FOM) seem to be a middle ground between ECM and EChM
-
+****
 <div style="page-break-after: always;"></div>
 
 # Parameter estimation
@@ -41,18 +42,78 @@ The following parameters need to be estimated
 
 ## $r_0, r_n, c_n$ estimation
 A comprehensive method is not documented. Only a discharge part without temperature dependence is exemplified in the code `xyz.m`
+****
+<div style="page-break-after: always;"></div>
+
+# Scaling the ECM model
+## Overview
+Generally, when the objective is to model a battery pack, the cell params are scaled as per cell-architecture of the pack such that the pack is represented as a giant cell. That approach works well on the system level when the intent of the pack model is to provide *voltage* to other powertrain models and consume a *current*. The overall objective of the vehicle model in that case is power balance and overall energy consumption prediction.
+
+This approach does not work well if the battery model (plant) is used for BMS model development or simulation. The BMS models at a *minimum* needs the max and min cell states (voltage, SOC, temperature), and preferably needs a spread of these states depending on the computational capacity.
+
+The modeling approach in that case is to put together a bunch of *unit cell ECM models*. A unit cell model takes current as input and produces voltage as output. If we arrange a bunch of cells ECM models in series they all consume the same current (total current drawn from the battery) - so no problems there. But as soon as we put ECM models in parallel, we need to find the current splits for the ECM model branches. 
+
+We need to solve a bunch of simultaneous equations which gives both the voltages and split-currents. It has been indicated to me that a parallel set of ECM model's current split can be calculated by a simple parallel resistance ($r_0$) divider circuit. This approach does not work. The initial drop of a ECM model has to do with $r_0$ and the RC pairs do not play any role in deciding the current, but beyond that the RC pairs come into picture and the current split evolves over time (even when the total current drawn $i$ is constant).
+## Comparing two models solving approaches
+### Model architecture
+![[parallelCellEcm.png]]
+
+
+### Equations
+As stated above, there are two parts to solving a network ECM
+1. finding branch currents
+2. finding capacitor voltages (derivatives)
+#### Branch currents 
+Branch currents depend of parameters, state variables and inputs ($i_{br}$) from **all** branches.
+###### Simultaneous solution
+$$
+i_a = (E_{a_0} - E_{b_0} + ir_{b_0} - V_{C_{a_1}} - V_{C_{a_2}} + V_{C_{b_1}} + V_{C_{b_2}}) / (r_{a_0} + r_{b_0})
+$$
+$$
+i_b = (E_{b_0} - E_{a_0} + ir_{a_0} - V_{C_{b_1}} - V_{C_{b_2}} + V_{C_{a_1}} + V_{C_{a_2}}) / (r_{a_0} + r_{b_0})
+$$
+
+###### Resistor divider solution (NOT correct)
+$$
+i_a = i \times \frac{r_{b_0}}{r_{a_0} + r_{b_0}}
+$$
+$$
+i_b = i \times \frac{r_{a_0}}{r_{a_0} + r_{b_0}}
+$$
+It can be seen that the resistor divider solution is part of the simultaneous equation solution, but doesn't capture the time dynamics. 
+#### Capacitor voltage
+Capacitor voltages depend on parameters, state variables and input ($i_{br}$) from the **respective** branch. We'll have 4 equations similar to this for the 4 RC pairs.
+$$
+\dot V_{C_{a_1}} = \frac{i_{a}}{C_{a_1}} - \frac{V_{C_{a_1}}}{r_{a_{1}}C_{a_1}}
+$$
+
+#### Terminal voltage
+$$
+V_t = E_{a_0} - i_a r_{a_0} - V_{C_{a_1}} - V_{C_{a_2}}
+$$
+The same value will be obtained for KVL on the other branch (*b*)
+
+#### Result comparison
+[[ecmScalingMethods.m]]
+The two parallel branches for the below plot has $r_{b_0}$ different to $r_{a_0}$. Everything else is same.
+Blue lines are values (voltage, current), orange lines are errors.
+From the 1st subplot it can be seen that the initial drop is same, but the RC pairs play in deciding how the branch current split evolves over time. This behavior is present if any parameter varies ($r_0, r_x, c_x, E_0$).
+
+![[ecmScalingMethodsComparison.png]]
 
 
 
+
+****
 ## Quick doubts
 1. Finding out OCV-SOC curve $\rightarrow$ the C/30 charge/discharge cycles are wrt time. It establishes 0% and 100% SOC in terms of pre-defined $v_{min}$ and  $v_{max}$. How do you define SOC-OCV in the intermediate points?
 	- We find capacity $Q$ and convert the time x-axis to SOC (%) as $SOC = (1 - \sum_{1}^k \frac{i}{Q}) \times 100\ \\\%$
 2. 
-
+****
 ## Asides
 1. Fractional order models
 
-
+****
 <div style="page-break-after: always;"></div>
 
 # BMS
