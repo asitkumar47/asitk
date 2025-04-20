@@ -60,10 +60,10 @@ The modeling approach in that case is to put together a bunch of *unit cell ECM 
 Branch currents depend of parameters, state variables and inputs ($i_{br}$) from **all** branches.
 ###### Simultaneous solution
 $$
-i_a = (E_{a_0} - E_{b_0} + ir_{a_0} - V_{C_{a_1}} - V_{C_{a_2}} + V_{C_{b_1}} + V_{C_{b_2}}) / (r_{a_0} + r_{b_0})
+i_a = (E_{a_0} - E_{b_0} + ir_{b_0} - V_{C_{a_1}} - V_{C_{a_2}} + V_{C_{b_1}} + V_{C_{b_2}}) / (r_{a_0} + r_{b_0})
 $$
 $$
-i_b = (E_{b_0} - E_{a_0} + ir_{b_0} - V_{C_{b_1}} - V_{C_{b_2}} + V_{C_{a_1}} + V_{C_{a_2}}) / (r_{a_0} + r_{b_0})
+i_b = (E_{b_0} - E_{a_0} + ir_{a_0} - V_{C_{b_1}} - V_{C_{b_2}} + V_{C_{a_1}} + V_{C_{a_2}}) / (r_{a_0} + r_{b_0})
 $$
 
 ###### Resistor divider solution
@@ -77,8 +77,19 @@ $$
 #### Capacitor voltage
 Capacitor voltages depend on parameters, state variables and input ($i_{br}$) from the **respective** branch. We'll have 4 equations similar to this for the 4 RC pairs.
 $$
-\dot V_{C_{a_1}} = \frac{i_{a}}{C_{a_i}} - \frac{V_{C_{a_1}}}{r_{a_{1}}C_{a_i}}
+\dot V_{C_{a_1}} = \frac{i_{a}}{C_{a_1}} - \frac{V_{C_{a_1}}}{r_{a_{1}}C_{a_1}}
 $$
+
+#### Terminal voltage
+$$
+V_t = E_{a_0} - i_a r_{a_0} - V_{C_{a_1}} - V_{C_{a_2}}
+$$
+The same value will be obtained for KVL on the other branch (*b*)
+
+#### Result comparison
+[[ecmScalingMethods.m]]
+
+
 ****
 <br>
 ****
