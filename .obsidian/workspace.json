@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11_basic_models/02_propeller_shaft/propShaftModelNotes.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "propShaftModelNotes"
+              "title": "batteryModelingNotes"
             }
           }
         ]
@@ -153,23 +153,24 @@
   },
   "active": "15f76db45fdb3310",
   "lastOpenFiles": [
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constPwrDraw.png",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalCurrentDraw.png",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalPwrDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalCurrentDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constPwrDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison.png",
+    "11_basic_models/02_propeller_shaft/propShaftModelNotes.md",
     "11_basic_models/02_propeller_shaft/propShaftModelNotes.pdf",
     "11_basic_models/02_propeller_shaft/propShaftParamVariation.png",
     "11_basic_models/02_propeller_shaft/propShaftParamVariation.fig",
     "11_basic_models/02_propeller_shaft/propShaft.asv",
-    "11_basic_models/02_propeller_shaft/propShaftModelNotes.md",
     "12_battery/batteryModelingNotes.md",
-    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison.png",
     "12_battery/ecmScaling/twoMethodComparison/Pasted image 20250420105903.png",
     "Pasted image 20250420105903.png",
     "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethods.asv",
     "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethods.m",
     "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison.fig",
     "12_battery/ecmScaling/ecmScalingMethodsComparison.fig",
-    "12_battery/ecmScaling/twoMethodComparison",
-    "12_battery/ecmScaling/New Folder",
-    "12_battery/ecmScaling/ecmScalingMethods.asv",
-    "12_battery/ecmScaling/ecmScalingMethods.m",
     "Untitled.md",
     "12_battery/References/pics/parallelCellEcm.png",
     "12_battery/parallelCellEcm.png",
@@ -179,7 +180,6 @@
     "21_basic_electrical/ACnotes.md",
     "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
     "13_electric_motor/pics/SCR-20250406-pmum-2.png",
-    "13_electric_motor/pics/dcLinkCapConstruction.png",
     "06_controls/filters/filtersNotes.md",
     "06_controls/Kalman_filter/kalmanFilter.md",
     "01_math/eigsOfContinuousAndDiscreteSystems.md",

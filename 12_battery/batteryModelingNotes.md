@@ -60,7 +60,7 @@ We need to solve a bunch of simultaneous equations which gives both the voltages
 
 
 ### Equations
-As stated above, there are two parts to solving a network ECM
+As stated above, there are two parts to solving a network ECM when total current $i$ is the input
 1. finding branch currents
 2. finding capacitor voltages (derivatives)
 #### Branch currents 
@@ -99,11 +99,11 @@ The two parallel branches for the below plot has $r_{b_0}$ different to $r_{a_0}
 Blue lines are values (voltage, current), orange lines are errors.
 From the 1st subplot it can be seen that the initial drop is same, but the RC pairs play in deciding how the branch current split evolves over time. This behavior is present if any parameter varies ($r_0, r_x, c_x, E_0$).
 
-![[ecmScalingMethodsComparison.png]]
+![[ecmScalingMethodsComparison_constTotalCurrentDraw.png]]
 
 
-
-
+Note: it is the same conclusion (current split by resistor-divider method) when total power draw is held constant.
+![[ecmScalingMethodsComparison_constPwrDraw.png]]
 ****
 ## Quick doubts
 1. Finding out OCV-SOC curve $\rightarrow$ the C/30 charge/discharge cycles are wrt time. It establishes 0% and 100% SOC in terms of pre-defined $v_{min}$ and  $v_{max}$. How do you define SOC-OCV in the intermediate points?
