@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "2a3fd9576a293b39",
+        "id": "1023ed955d79ec7d",
         "type": "tabs",
         "children": [
           {
-            "id": "9996aa9101dbb4c6",
+            "id": "15f76db45fdb3310",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_oop/coupledOdeModelingOOP.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "coupledOdeModelingOOP"
+              "title": "batteryModelingNotes"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "393f5a2e293a6ead",
@@ -95,12 +96,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "06_controls/filters/filtersNotes.md",
+                "file": "12_battery/batteryModelingNotes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from filtersNotes"
+              "title": "Outgoing links from batteryModelingNotes"
             }
           },
           {
@@ -150,38 +151,39 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9996aa9101dbb4c6",
+  "active": "15f76db45fdb3310",
   "lastOpenFiles": [
-    "10_oop/MotorThermalModel.m",
-    "10_oop/untitled.m",
-    "10_oop/PropSpeedModel.m",
-    "10_oop/MotorModel.asv",
-    "10_oop/MotorModel.m",
-    "21_basic_electrical/powerElectronicsNotes.md",
-    "10_oop/coupledOdeModelingOOP.md",
-    "13_electric_motor/pics/inverterSchematic.png",
-    "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
-    "13_electric_motor/pics/dcLinkCapConstruction.png",
-    "13_electric_motor/pics",
-    "13_electric_motor/electricMotorNotes.md",
-    "06_controls/filters/filtersNotes.md",
-    "06_controls/filters",
-    "21_basic_electrical/ACnotes.md",
-    "13_electric_motor/pics/SCR-20250406-pmum-2.png",
-    "13_electric_motor/pics/Pasted image 20250406124631.png",
-    "13_electric_motor/untitled folder",
-    "13_electric_motor/Pasted image 20250406124631.png",
-    "Pasted image 20250406124631.png",
-    "13_electric_motor/DC_capacitor_sizing_paper.pdf",
-    "13_electric_motor",
-    "06_controls/Kalman_filter/kalmanFilter.md",
-    "12_battery/getCellPackParamFcn.m",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constPwrDraw.png",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalCurrentDraw.png",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalPwrDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constTotalCurrentDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison_constPwrDraw.fig",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison.png",
+    "11_basic_models/02_propeller_shaft/propShaftModelNotes.md",
+    "11_basic_models/02_propeller_shaft/propShaftModelNotes.pdf",
+    "11_basic_models/02_propeller_shaft/propShaftParamVariation.png",
+    "11_basic_models/02_propeller_shaft/propShaftParamVariation.fig",
+    "11_basic_models/02_propeller_shaft/propShaft.asv",
     "12_battery/batteryModelingNotes.md",
-    "12_battery/References/pics/ECM.svg",
+    "12_battery/ecmScaling/twoMethodComparison/Pasted image 20250420105903.png",
+    "Pasted image 20250420105903.png",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethods.asv",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethods.m",
+    "12_battery/ecmScaling/twoMethodComparison/ecmScalingMethodsComparison.fig",
+    "12_battery/ecmScaling/ecmScalingMethodsComparison.fig",
+    "Untitled.md",
+    "12_battery/References/pics/parallelCellEcm.png",
+    "12_battery/parallelCellEcm.png",
+    "parallelCellEcm.png",
+    "13_electric_motor/electricMotorNotes.md",
+    "21_basic_electrical/powerElectronicsNotes.md",
+    "21_basic_electrical/ACnotes.md",
+    "13_electric_motor/pics/filmVsCeramicPropertyComparison.png",
+    "13_electric_motor/pics/SCR-20250406-pmum-2.png",
+    "06_controls/filters/filtersNotes.md",
+    "06_controls/Kalman_filter/kalmanFilter.md",
     "01_math/eigsOfContinuousAndDiscreteSystems.md",
     "20_specific_models/dronePowertrainSizingNotes.md",
-    "06_controls/Kalman_filter/Observer.png",
-    "06_controls/Kalman_filter/KF.png",
     "22_basic_thermal/basicThermals.md",
     "06_controls/impulse_and_step_response/stepAndImpulseResponseNotes.md"
   ]
