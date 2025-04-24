@@ -33,12 +33,12 @@ c2A_F   = 25 / r2A_Ohm;
 c2B_F   = 25 / r2B_Ohm;
 
 % sim
-dt_s = .1;
+dt_s = .001;
 t_s = 1:dt_s:100;
 
 % input
-i_A = 10 * ones(1, length(t_s));
-i_A(round(length(i_A)/2) : end) = 0;
+pwr_W = 50 * ones(1, length(t_s));
+pwr_W(round(length(pwr_W)/2) : end) = 0;
 
 % ic
 vc1AM1_V(1) = 0;
@@ -51,17 +51,22 @@ vc1BM2_V(1) = 0;
 vc2AM2_V(1) = 0;
 vc2BM2_V(1) = 0;
 
+VtM1_V(1) = ocvA_V;
+VtM2_V(1) = ocvB_V;
+
 
 % sim
 for iT = 1:length(t_s)
     % brnach currents
         % method 1
-        iAM1_A(iT + 1) = (ocvA_V - ocvB_V + i_A(iT) * r0B_Ohm - vc1AM1_V(iT) - vc2AM1_V(iT) + vc1BM1_V(iT) + vc2BM1_V(iT)) / (r0A_Ohm + r0B_Ohm);
-        iBM1_A(iT + 1) = (ocvB_V - ocvA_V + i_A(iT) * r0A_Ohm - vc1BM1_V(iT) - vc2BM1_V(iT) + vc1AM1_V(iT) + vc2AM1_V(iT)) / (r0A_Ohm + r0B_Ohm);    
+        iM1_A(iT) = pwr_W(iT) / VtM1_V(iT);
+        iAM1_A(iT + 1) = (ocvA_V - ocvB_V + iM1_A(iT) * r0B_Ohm - vc1AM1_V(iT) - vc2AM1_V(iT) + vc1BM1_V(iT) + vc2BM1_V(iT)) / (r0A_Ohm + r0B_Ohm);
+        iBM1_A(iT + 1) = (ocvB_V - ocvA_V + iM1_A(iT) * r0A_Ohm - vc1BM1_V(iT) - vc2BM1_V(iT) + vc1AM1_V(iT) + vc2AM1_V(iT)) / (r0A_Ohm + r0B_Ohm);    
         
         % method 2
-        iAM2_A(iT + 1) = i_A(iT) * r0B_Ohm / (r0A_Ohm + r0B_Ohm);
-        iBM2_A(iT + 1) = i_A(iT) * r0A_Ohm / (r0A_Ohm + r0B_Ohm);
+        iM2_A(iT) = pwr_W(iT) / VtM2_V(iT);
+        iAM2_A(iT + 1) = iM2_A(iT) * r0B_Ohm / (r0A_Ohm + r0B_Ohm);
+        iBM2_A(iT + 1) = iM2_A(iT) * r0A_Ohm / (r0A_Ohm + r0B_Ohm);
 
     % capacitor voltages (Forward Euler integration)
     vc1AM1_V(iT + 1) = vc1AM1_V(iT) + dt_s * (iAM1_A(iT + 1) / c1A_F - vc1AM1_V(iT) / (r1A_Ohm * c1A_F));
@@ -79,7 +84,7 @@ for iT = 1:length(t_s)
 end
 
 %%
-figure(1); clf; 
+figure(1); clf; pause(.05);
 ax1 = subplot(2, 2, 1);
 yyaxis left
 plot(t_s, VtM1_V(2: end), 'LineWidth', 1); grid on, hold on;
@@ -91,9 +96,9 @@ legend('Method 1 - simultaneous solving', 'Method 2 - resistor divider', 'error 
 ax2 = subplot(2, 2, 3);
 yyaxis left
 plot(t_s, iAM1_A(2:end) + iBM1_A(2:end), 'LineWidth', 1.5); grid on; title('Method 1 - sum of branch currents'); 
-ylim([1.1, 1.1] .* [(min(i_A) - 1), (max(i_A) + 1)])
+ylim([1.1, 1.1] .* [(min(iM1_A) - 1), (max(iM1_A) + 1)])
 yyaxis right
-plot(t_s, i_A - (iAM1_A(2:end) + iBM1_A(2:end)), 'LineWidth', 1); ylim([-1 1])
+plot(t_s, iM1_A - (iAM1_A(2:end) + iBM1_A(2:end)), 'LineWidth', 1); ylim([-1 1])
 ylabel('A'); xlabel('Time (s)'); legend('Method 1 $\rightarrow \sum$ brnach currents', 'error (A)', 'interpreter', 'latex')
 
 ax3 = subplot(2, 2, 2);
